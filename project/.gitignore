@@ -1,0 +1,11 @@
+*.pyc
+.env
+*__pycache__
+venv
+.env.*
+.vscode
+.pytest_cache
+
+admin/db.sqlite3
+
+admin/templates/static/admin/*
