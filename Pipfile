@@ -12,6 +12,7 @@ markdown = "*"
 uwsgi = "*"
 numba = "*"
 pygments = "*"
+py-gfm = "*"
 
 [requires]
 python_version = "3.6"

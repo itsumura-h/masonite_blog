@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "9ad5f2d4ee3c089b01ea30493596f37543b71d0c333bded9386ef1693ed50131"
+            "sha256": "b0fd20f045001eac360876188cfd9cbc806b460d85bc86e4c8f17ceace50069f"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -148,11 +148,11 @@
         },
         "markdown": {
             "hashes": [
-                "sha256:c00429bd503a47ec88d5e30a751e147dcb4c6889663cd3e2ba0afe858e009baa",
-                "sha256:d02e0f9b04c500cde6637c11ad7c72671f359b87b9fe924b2383649d8841db7c"
+                "sha256:9ba587db9daee7ec761cfc656272be6aabe2ed300fece21208e4aab2e457bc8f",
+                "sha256:a856869c7ff079ad84a3e19cd87a64998350c2b94e9e08e44270faef33400f81"
             ],
             "index": "pypi",
-            "version": "==3.0.1"
+            "version": "==2.6.11"
         },
         "masonite-cli": {
             "hashes": [
@@ -222,6 +222,14 @@
                 "sha256:d1fee8079534f99f1805a044fef946d23eee6d6a7cd34292c30e6c16be9a80b9"
             ],
             "version": "==0.1.0"
+        },
+        "py-gfm": {
+            "hashes": [
+                "sha256:d873541bcae194cc3b5053858719668834d3f1829342f0566ab3a48d0d744d58",
+                "sha256:ef6750c579d26651cfd23968258b604228fd71b2a4e1f71dea3bea289e01377e"
+            ],
+            "index": "pypi",
+            "version": "==0.1.4"
         },
         "pycparser": {
             "hashes": [
