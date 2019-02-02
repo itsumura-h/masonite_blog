@@ -19,7 +19,6 @@ class ClassTabs extends React.Component {
 
     const backgroundImg = Util.getBackgroundImg();
     const pathname = window.location.pathname;
-    console.log(pathname);
 
     return (
       <AppBar position="static" className={backgroundImg}>
