@@ -114,8 +114,8 @@ class Tagmap(models.Model):
     def __str__(self):
         return str(self.tag)
 
-    tag = models.ForeignKey(Tag, on_delete=models.PROTECT)
-    article = models.ForeignKey(Article, on_delete=models.PROTECT)
+    tag = models.ForeignKey(Tag, on_delete=models.CASCADE)
+    article = models.ForeignKey(Article, on_delete=models.CASCADE)
 
     class Meta:
         db_table = 'tagmaps'
