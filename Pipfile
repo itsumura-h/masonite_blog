@@ -10,9 +10,10 @@ django = "*"
 masonite-cli = "*"
 markdown = "*"
 uwsgi = "*"
-numba = "*"
 pygments = "*"
 py-gfm = "*"
+pylint = "*"
+autopep8 = "*"
 
 [requires]
 python_version = "3.6"

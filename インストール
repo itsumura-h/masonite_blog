@@ -1,1 +1,1 @@
-pipenv install django masonite-cli markdown py-gfm pygments uwsgi numba
+pipenv install django masonite-cli markdown py-gfm pygments uwsgi gunicorn pylint autopep8
