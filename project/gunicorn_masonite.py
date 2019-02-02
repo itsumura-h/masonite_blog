@@ -4,7 +4,7 @@ socket_path = 'unix:/var/run/masonite.sock'
 bind = socket_path
 
 # Worker Processes
-workers = 1
+workers = 2
 worker_class = 'sync'
 
 # Logging
