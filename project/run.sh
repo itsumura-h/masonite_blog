@@ -1,6 +1,4 @@
 #!/bin/bash
-#pgrep uwsgi | xargs kill -9
-killall uwsgi
+killall gunicorn
 service nginx restart
-nohup uwsgi --ini masonite.ini > /dev/null 2>&1 &
-
+nohup gunicorn wsgi --config gunicorn_masonite.py > /dev/null 2>&1 &
