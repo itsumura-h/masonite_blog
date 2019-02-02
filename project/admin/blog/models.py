@@ -74,7 +74,7 @@ class Article(models.Model):
     meta_description = models.CharField(max_length=255, blank=True, null=True)
     posted_on = models.DateField(auto_now_add=True)
     updated_on = models.DateField(auto_now=True)
-    timestamp = models.BigIntegerField()
+    timestamp = models.BigIntegerField(db_index=True)
     series = models.ForeignKey(Series, on_delete=models.PROTECT, blank=True, null=True)
 
     # https://docs.djangoproject.com/en/2.1/topics/db/models/#overriding-predefined-model-methods
