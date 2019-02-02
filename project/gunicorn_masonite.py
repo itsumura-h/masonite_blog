@@ -11,3 +11,4 @@ worker_class = 'sync'
 logfile = '/home/www/masonite_blog/project/log.log'
 loglevel = 'info'
 logconfig = None
+
