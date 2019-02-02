@@ -2,4 +2,5 @@ python
 pipenv install django masonite-cli markdown py-gfm pygments uwsgi pylint autopep8
 
 pypy
-pip install django masonite-cli markdown py-gfm pygments gunicorn pylint autopep8
+pip install django masonite-cli py-gfm pygments gunicorn pylint autopep8
+pip install git+https://github.com/Python-Markdown/markdown.git@2.6

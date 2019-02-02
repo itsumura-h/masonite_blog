@@ -74,7 +74,6 @@ class MainArticle extends React.Component{
           <Chip
             label={tag.tag}
             clickable
-            //onClick={this.props.appProps.drawer_changeDrawerOpen}
           />
         </Link>
       );

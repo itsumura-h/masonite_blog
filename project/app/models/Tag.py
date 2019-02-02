@@ -32,14 +32,12 @@ class Tag(Model):
     def get_tag_name_by_tag_id(tag_id):
         return Tag \
             .select('tag') \
-            .where('id', '=', tag_id) \
-            .find(1) \
+            .find(tag_id) \
             .serialize()
 
     @staticmethod
     def get_tag_name_by_tag_id_en(tag_id):
         return Tag \
             .select('tag_en AS tag') \
-            .where('id', '=', tag_id) \
-            .find(1) \
+            .find(tag_id) \
             .serialize()

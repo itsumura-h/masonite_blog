@@ -26,7 +26,7 @@ class TagInline(admin.StackedInline):
     classes = ['collapse']
 class ArticleAdmin(admin.ModelAdmin):
     readonly_fields = ['article_html', 'article_html_en', 'timestamp', 'posted_on', 'updated_on']
-    list_display = ('title', 'timestamp')
+    list_display = ('title', 'series_id','timestamp')
     fieldsets = [
         (None,{
             'fields': [

@@ -100,6 +100,7 @@ export default class API extends React.Component{
     return Util.getAPI(url);
   }
 
+  //_/_/_/_/_/_/_/_/_/  以下未使用  /_/_/_/_/_/_/_/_/_/_/_/_/_/
 
   static getLatests=()=>{
     const language = window.localStorage.getItem('language');
