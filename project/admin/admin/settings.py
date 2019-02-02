@@ -23,8 +23,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'jz$g8^-++7k*mjy_4@p-6=0vx#oidae)i&uskjxk6_kcyf-87b'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-#DEBUG = True
-DEBUG = False
+DEBUG = True
+#DEBUG = False
 
 ALLOWED_HOSTS = ['localhost','dumblepy.site']
 
@@ -128,4 +128,5 @@ USE_TZ = True
 
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'templates/static')
+if DEBUG == False:
+    STATIC_ROOT = os.path.join(BASE_DIR, 'templates/static')
