@@ -18,6 +18,8 @@ class ClassTabs extends React.Component {
     const { classes } = this.props;
 
     const backgroundImg = Util.getBackgroundImg();
+    const pathname = window.location.pathname;
+    console.log(pathname);
 
     return (
       <AppBar position="static" className={backgroundImg}>
@@ -29,22 +31,22 @@ class ClassTabs extends React.Component {
           //fullWidth
         >
           <Button
-            component={Link} to="/blog/" className={classes.toppage + ' TabBlack'}
+            component={Link} to="/blog/" disabled={pathname === '/blog/'? true: false} className={classes.toppage + ' TabBlack'}
           >
             <TouchApp/>
             {I18N.toppageTab}
           </Button>
           <Button
-            component={Link} to="/blog/series/" className={classes.series + ' TabWhite'}
+            component={Link} to="/blog/series/" disabled={pathname === '/blog/series/'? true: false} className={classes.series + ' TabWhite'}
           >
             <TouchApp/>
             {I18N.seriesTab}
           </Button>
-          <Button component={Link} to="/blog/diary/" className={classes.diary + ' TabBlack'}>
+          <Button component={Link} to="/blog/diary/" disabled={pathname === '/blog/diary/'? true: false} className={classes.diary + ' TabBlack'}>
             <TouchApp/>
             {I18N.diariesTab}
           </Button>
-          <Button component={Link} to="/blog/search/" className={classes.search + ' TabWhite'}>
+          <Button component={Link} to="/blog/search/" disabled={pathname === '/blog/search/'? true: false} className={classes.search + ' TabWhite'}>
             <TouchApp/>
             {I18N.searchTab}
           </Button>
