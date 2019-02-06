@@ -41,5 +41,6 @@ ROUTES = [
     ], prefix='/blog'),
 
     get('/favicon.ico', WelcomeController.favicon),
+    get('/manifest.json', WelcomeController.manifest),
     get('/service-worker.js', WelcomeController.service_worker),
 ]
