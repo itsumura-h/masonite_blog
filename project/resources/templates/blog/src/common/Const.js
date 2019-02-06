@@ -7,7 +7,6 @@ const DEV = {
 const PROD = {
   mode: 'prod',
   APIMODE: '',
-  //APIHOST: 'http://dumblepy.site',
   APIHOST: window.location.origin,
 }
 
