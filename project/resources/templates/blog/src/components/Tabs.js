@@ -51,7 +51,7 @@ class ClassTabs extends React.Component {
           </Button>
           <Button component={Link} to="/blog/products/" disabled={pathname === '/blog/products/'? true: false} className={classes.products + ' TabWhite'}>
             <TouchApp/>
-            {I18N.searchTab}
+            {I18N.productsTab}
           </Button>
         </Tabs>
       </AppBar>

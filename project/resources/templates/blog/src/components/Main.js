@@ -14,6 +14,7 @@ import MainArticles from './Main/MainArticles';
 import MainDiary from './Main/MainDiary';
 import MainArticle from './Main/MainArticle';
 import MainSearch from './Main/MainSearch';
+import MainProducts from './Main/MainProducts';
 
 
 
@@ -84,6 +85,14 @@ class ClassMain extends React.Component {
           <Route path="/blog/search/"
             render={props=>(
               <MainSearch
+                routeProps={props}
+                appProps={this.props}
+              />
+            )}
+          />
+          <Route path="/blog/products/"
+            render={props=>(
+              <MainProducts
                 routeProps={props}
                 appProps={this.props}
               />

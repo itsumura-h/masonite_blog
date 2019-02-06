@@ -11,12 +11,14 @@ const ja = {
   seriesTab: '連載一覧',
   diariesTab: '雑記一覧',
   searchTab: '検索',
+  productsTab: 'ツール',
   allTab: '全記事一覧',
   drawerSearchLabel: '検索ワード',
   drawerSearchButton: '検索',
   diariesWithClick: '雑記(クリックで開く)',
   searchResultOf: '"の検索結果',
   searchResultTag: 'タグ"',
+  productsList: 'ツール一覧',
 }
 
 const en = {
@@ -33,11 +35,13 @@ const en = {
   diariesTab: 'Diaries',
   allTab: 'All articles',
   searchTab: 'Search',
+  productsTab: 'Products',
   drawerSearchLabel: 'search word',
   drawerSearchButton: 'search',
   diariesWithClick: 'Diaries(Click here to open)',
   searchResultOf: 'Search results of ',
   searchResultTag: 'tag: ',
+  productsList: 'Products',
 }
 
 let I18N = null;
