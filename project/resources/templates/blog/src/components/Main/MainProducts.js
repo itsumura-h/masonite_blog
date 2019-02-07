@@ -69,6 +69,14 @@ export default class MainProducts extends React.Component{
         <h2>{I18N.productsList}</h2>
         <List component="nav">
           {series_list}
+          <Link to='/products/vocaburary'  key={0}>
+            <ListItem button>
+              <ListItemIcon>
+                <TouchApp/>
+              </ListItemIcon>
+              <ListItemText primary='英単語' />
+            </ListItem>
+          </Link>
         </List>
       </Card>
     );

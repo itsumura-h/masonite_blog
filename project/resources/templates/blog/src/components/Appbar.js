@@ -67,7 +67,7 @@ class ClassAppBar extends React.Component {
           <Fab
             variant="extended"
             onClick={this.changeLanguage}
-            hreflang={window.localStorage.getItem('language') == "en"? "ja": "en"}
+            hrefLang={window.localStorage.getItem('language') == "en"? "ja": "en"}
           >
             <Translate/>
             {I18N.EnglishButton}
