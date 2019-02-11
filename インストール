@@ -1,3 +1,6 @@
+yarn
+yarn add npm @material-ui/core @material-ui/icons axios react-cookie react-meta-tags react-router-dom
+
 python
 pipenv install django masonite-cli markdown py-gfm pygments uwsgi pylint autopep8
 
