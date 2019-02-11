@@ -4,3 +4,16 @@ pipenv install django masonite-cli markdown py-gfm pygments uwsgi pylint autopep
 pypy
 pip install django masonite-cli py-gfm pygments gunicorn pylint autopep8
 pip install git+https://github.com/Python-Markdown/markdown.git@2.6
+
+
+Let's Encrypt で Nginx にSSLを設定する
+https://qiita.com/HeRo/items/f9eb8d8a08d4d5b63ee9
+
+nginx で http でのアクセスを https にリダイレクト
+https://qiita.com/kga/items/e30d668ec1ac5e30025b
+
+/home/www/certbot/certbot-auto renew
+/home/www/certbot/certbot-auto certonly --webroot -w /var/www/ssl -d dumblepy.site --agree-tos --force-renewal -n
+
+/etc/cron.d/ssl_renew_cron
+0 4   1   *   * root  /home/www/certbot/certbot-auto renew && service nginx restart

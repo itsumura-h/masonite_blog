@@ -108,7 +108,6 @@
 /*タイトル文字*/
 @import url('https://fonts.googleapis.com/css?family=Coiny');
 .Title {
-  /*color: #00f;*/
   color: black !important;
   font-weight: bold !important;
   font-size: x-large !important;
