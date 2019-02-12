@@ -17,6 +17,6 @@ self.__precacheManifest = [
   },
   {
     "revision": "0ea2d47bba08b7fe051a13c88aa0494f",
-    "url": "/blog"
+    "url": "/index.html"
   }
 ];
