@@ -56,7 +56,7 @@ and an alias of <img src="/static/image.png">
 
 STATICFILES = {
     # folder          # template alias
-    'resources/templates/blog/build/static': 'static/',
+    'resources/templates/blog/build/': '/',
     #'storage/static': 'static/',
     #'storage/compiled': 'static/',
     #'storage/uploads': 'static/',

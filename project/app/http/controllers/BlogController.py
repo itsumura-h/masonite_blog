@@ -19,9 +19,6 @@ class BlogController:
     def show(self):
         return view('blog/build/index.html')
 
-    #def redirect(self, request:Request):
-    #    return request.redirect('/blog/')
-
 
     #_/_/_/_/_/_/_/_/  API  /_/_/_/_/_/_/_/_/
     def get_toppage(self, request:Request):

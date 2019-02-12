@@ -21,12 +21,3 @@ class WelcomeController:
             'app': request.app().make('Application')
         })
 
-
-    def favicon(self):
-        return view('blog/build/favicon.ico')
-    
-    def manifest(self):
-        return view('blog/build/manifest.json')
-
-    def service_worker(self):
-        return view('blog/build/service-worker.js')

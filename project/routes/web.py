@@ -11,7 +11,6 @@ ROUTES = [
     #Get().route('/', 'WelcomeController@show').name('welcome'),
     #get('/', BlogController.redirect),
     Redirect('/', '/blog', status=302, methods=['GET']),
-    Get().view('/index.html', 'blog/build/index.html'),
 
     RouteGroup([
         RouteGroup([
@@ -42,8 +41,4 @@ ROUTES = [
         get('/@a/@b', BlogController.show),
         get('/@a/@b/@c', BlogController.show),
     ], prefix='/blog'),
-
-    get('/favicon.ico', WelcomeController.favicon),
-    get('/manifest.json', WelcomeController.manifest),
-    get('/service-worker.js', WelcomeController.service_worker),
 ]
