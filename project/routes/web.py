@@ -2,13 +2,16 @@
 
 from masonite.routes import Get, Post, RouteGroup
 from masonite.helpers.routes import get, post
+from masonite.routes import Redirect
 
 from app.http.controllers.WelcomeController import WelcomeController
 from app.http.controllers.BlogController import BlogController
 
 ROUTES = [
     #Get().route('/', 'WelcomeController@show').name('welcome'),
-    get('/', BlogController.redirect),
+    #get('/', BlogController.redirect),
+    Redirect('/', '/blog', status=302, methods=['GET']),
+    Get().view('/index.html', 'blog/build/index.html'),
 
     RouteGroup([
         RouteGroup([
