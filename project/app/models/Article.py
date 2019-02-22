@@ -12,7 +12,8 @@ class Article(Model):
     def get_articles_by_series_id(series_id):
         return Article \
             .select('id', 'title', 'timestamp') \
-            .where('series_id', '=', series_id) \
+            .where('series_id', series_id) \
+            .where('is_private', '!=', True) \
             .get() \
             .serialize()
 
@@ -20,13 +21,14 @@ class Article(Model):
     def get_articles_by_series_id_en(series_id):
         return Article \
             .select('id', 'title_en AS title', 'timestamp') \
-            .where('series_id', '=', series_id) \
+            .where('series_id', series_id) \
+            .where('is_private', '!=', True) \
             .get() \
             .serialize()
     #------------------------------------------------------
     @staticmethod
     def get_article_by_timestamp(timestamp):
-        return Article \
+        article = Article \
             .select(
                 'title',
                 'article_html',
@@ -34,13 +36,18 @@ class Article(Model):
                 'posted_on',
                 'updated_on'
             ) \
-            .where('timestamp', '=', timestamp) \
-            .first() \
-            .serialize()
+            .where('timestamp', timestamp) \
+            .where('is_private', '!=', True) \
+            .first()
+        
+        if article is not None:
+            return article.serialize()
+        else:
+            return {}
 
     @staticmethod
     def get_article_by_timestamp_en(timestamp):
-        return Article \
+        article = Article \
             .select(
                 'title_en AS title',
                 'article_html_en AS article_html',
@@ -49,13 +56,19 @@ class Article(Model):
                 'updated_on'
             ) \
             .where('timestamp', '=', timestamp) \
-            .first() \
-            .serialize()
+            .where('is_private', '!=', True) \
+            .first()
+
+        if article is not None:
+            return article.serialize()
+        else:
+            return {}
     #------------------------------------------------------
     @staticmethod
     def get_diaries():
         return Article.select('title', 'timestamp') \
             .where_null('series_id') \
+            .where('is_private', '!=', True) \
             .order_by('timestamp', 'desc') \
             .limit(50) \
             .get() \
@@ -65,6 +78,7 @@ class Article(Model):
     def get_diaries_en():
         return Article.select('title_en AS title', 'timestamp') \
             .where_null('series_id') \
+            .where('is_private', '!=', True) \
             .order_by('timestamp', 'desc') \
             .limit(50) \
             .get() \
@@ -77,6 +91,7 @@ class Article(Model):
                 'title',
                 'timestamp'
             ) \
+            .where('is_private', '!=', True) \
             .where('article_md', 'like', '%'+keyword+'%') \
             .get() \
             .serialize()
@@ -88,6 +103,7 @@ class Article(Model):
                 'title_en AS title',
                 'timestamp'
             ) \
+            .where('is_private', '!=', True) \
             .where('article_md_en', 'like', '%'+keyword+'%') \
             .get() \
             .serialize()
