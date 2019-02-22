@@ -31,7 +31,7 @@ class ArticleAdmin(admin.ModelAdmin):
         (None,{
             'fields': [
                 'title', 'article_md', 'title_en', 'article_md_en', 'meta_description',
-                'series', 'posted_on', 'updated_on', 'timestamp'
+                'series', 'is_private', 'posted_on', 'updated_on', 'timestamp'
             ]
         }),
         ('html', {

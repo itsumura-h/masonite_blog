@@ -75,7 +75,9 @@ class Article(models.Model):
     posted_on = models.DateField(auto_now_add=True)
     updated_on = models.DateField(auto_now=True)
     timestamp = models.BigIntegerField(db_index=True)
+    is_private = models.BooleanField(default=False)
     series = models.ForeignKey(Series, on_delete=models.PROTECT, blank=True, null=True)
+    
 
     # https://docs.djangoproject.com/en/2.1/topics/db/models/#overriding-predefined-model-methods
     def save(self, *args, **kwargs):

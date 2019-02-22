@@ -26,7 +26,7 @@ SECRET_KEY = 'jz$g8^-++7k*mjy_4@p-6=0vx#oidae)i&uskjxk6_kcyf-87b'
 DEBUG = True
 #DEBUG = False
 
-ALLOWED_HOSTS = ['localhost','dumblepy.site']
+ALLOWED_HOSTS = ['localhost','149.28.25.245','dumblepy.site']
 
 
 # Application definition
