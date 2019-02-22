@@ -39,7 +39,7 @@ class Article(Model):
             .where('timestamp', timestamp) \
             .where('is_private', '!=', True) \
             .first()
-        
+
         if article is not None:
             return article.serialize()
         else:
@@ -55,7 +55,7 @@ class Article(Model):
                 'posted_on',
                 'updated_on'
             ) \
-            .where('timestamp', '=', timestamp) \
+            .where('timestamp', timestamp) \
             .where('is_private', '!=', True) \
             .first()
 
@@ -117,7 +117,8 @@ class Article(Model):
             ) \
             .left_join('tagmaps', 'articles.id', '=', 'tagmaps.article_id') \
             .left_join('tags', 'tagmaps.tag_id', '=', 'tags.id') \
-            .where('tags.id', '=', tag_id) \
+            .where('is_private', '!=', True) \
+            .where('tags.id', tag_id) \
             .get() \
             .serialize()
 
@@ -130,6 +131,7 @@ class Article(Model):
             ) \
             .left_join('tagmaps', 'articles.id', '=', 'tagmaps.article_id') \
             .left_join('tags', 'tagmaps.tag_id', '=', 'tags.id') \
-            .where('tags.id', '=', tag_id) \
+            .where('is_private', '!=', True) \
+            .where('tags.id', tag_id) \
             .get() \
             .serialize()

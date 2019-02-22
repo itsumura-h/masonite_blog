@@ -71,7 +71,7 @@ class BlogController:
     #-----------------------------------------------------
     def get_articles_by_keyword(self, request:Request):
         keyword = request.input('keyword')
-        if keyword is '':
+        if keyword == '':
             return {'value': ''}
 
         articles = Article.get_articles_by_keyword(keyword)
@@ -79,7 +79,7 @@ class BlogController:
 
     def get_articles_by_keyword_en(self, request:Request):
         keyword = request.input('keyword')
-        if keyword is '':
+        if keyword == '':
             return {'value': ''}
 
         articles = Article.get_articles_by_keyword_en(keyword)

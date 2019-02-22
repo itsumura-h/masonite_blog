@@ -1,4 +1,5 @@
 .venv/*
+.vpy6/*
 .vpy7/*
 .pypyvenv/*
 .vscode
