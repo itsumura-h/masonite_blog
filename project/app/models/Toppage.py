@@ -16,8 +16,7 @@ class Toppage(Model):
                 'article_html',
                 'meta_description'
             ) \
-            .find(1) \
-            .serialize()
+            .find(1)
 
     @staticmethod
     def get_toppage_en():

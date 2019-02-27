@@ -9,11 +9,12 @@ from app.models.Toppage import Toppage
 class BlogController:
     """BlogController
     """
-
     def __init__(self, request:Request):
         self.param = Request.param
         if request.header('Access-Control-Allow-Origin') != 'http://localhost:3000':
             request.header('Access-Control-Allow-Origin', 'http://localhost:3000')
+
+    __toppage__ = Toppage
 
 
     def show(self):
@@ -22,7 +23,7 @@ class BlogController:
 
     #_/_/_/_/_/_/_/_/  API  /_/_/_/_/_/_/_/_/
     def get_toppage(self, request:Request):
-        toppage = Toppage.get_toppage()
+        toppage = Toppage.get_toppage().serialize()
         return {'value': {'toppage': toppage}}
 
     def get_toppage_en(self, request:Request):
