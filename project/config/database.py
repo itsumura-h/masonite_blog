@@ -28,6 +28,11 @@ DATABASES = {
         'database': env('DB_DATABASE'),
         'log_queries': env('DB_LOG'),
     },
+    'test' : {
+        'driver': 'sqlite',
+        'database': ':memory:',
+        'log_queries': env('DB_LOG'),
+    },
     'mysql': {
         'driver': 'mysql',
         'host': env('DB_HOST'),
