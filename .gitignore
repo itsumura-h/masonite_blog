@@ -4,3 +4,4 @@
 .pypyvenv/*
 .vscode
 nohup.out
+project/htmlcov/*
