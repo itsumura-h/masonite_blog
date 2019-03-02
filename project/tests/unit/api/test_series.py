@@ -30,8 +30,10 @@ class TestToppage(UnitTest):
         self.response_en = json.loads(_response_en)
 
     def test_url_available(self):
-        assert self.route('/blog/api/getSeries')
-        assert self.route('/blog/api/getSeries_en')
+        assert self.route('/blog/api/getSeries').ok()
+        assert self.route('/blog/api/getSeries_en').ok()
+
+    def test_has_controller(self):
         assert self.route(
             '/blog/api/getSeries').has_controller(BlogController)
         assert self.route(

@@ -18,10 +18,14 @@ class TestToppage(UnitTest):
         self.response_en = json.loads(_response_en)
 
     def test_url_available(self):
-        assert self.route('/blog/api/getToppage')
-        assert self.route('/blog/api/getToppage_en')
+        assert self.route('/blog/api/getToppage').ok()
+        assert self.route('/blog/api/getToppage_en').ok()
+
+    def test_has_controller(self):
         assert self.route(
             '/blog/api/getToppage').has_controller(BlogController)
+        assert self.route(
+            '/blog/api/getToppage_en').has_controller(BlogController)
 
     def test_api(self):
         assert self.model.title == self.response['value']['toppage']['title']
