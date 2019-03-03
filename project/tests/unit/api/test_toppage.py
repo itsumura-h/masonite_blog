@@ -9,23 +9,23 @@ class TestToppage(UnitTest):
     def setup_method(self):
         super().setup_method()
         self.model = Toppage.find(1)
-        _response = self.json('/blog/api/getToppage', None,
+        _response = self.json('/blog/api/toppage', None,
                           method="GET").container.make('Response')
         self.response = json.loads(_response)
 
-        _response_en = self.json('/blog/api/getToppage_en', None,
+        _response_en = self.json('/blog/api/toppage_en', None,
                           method="GET").container.make('Response')
         self.response_en = json.loads(_response_en)
 
     def test_url_available(self):
-        assert self.route('/blog/api/getToppage').ok()
-        assert self.route('/blog/api/getToppage_en').ok()
+        assert self.route('/blog/api/toppage').ok()
+        assert self.route('/blog/api/toppage_en').ok()
 
     def test_has_controller(self):
         assert self.route(
-            '/blog/api/getToppage').has_controller(BlogController)
+            '/blog/api/toppage').has_controller(BlogController)
         assert self.route(
-            '/blog/api/getToppage_en').has_controller(BlogController)
+            '/blog/api/toppage_en').has_controller(BlogController)
 
     def test_api(self):
         assert self.model.title == self.response['value']['toppage']['title']

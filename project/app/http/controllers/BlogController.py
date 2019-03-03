@@ -22,78 +22,78 @@ class BlogController:
 
 
     #_/_/_/_/_/_/_/_/  API  /_/_/_/_/_/_/_/_/
-    def get_toppage(self, request:Request):
-        toppage = Toppage.get_toppage().serialize()
+    def toppage(self, request:Request):
+        toppage = Toppage.toppage().serialize()
         return {'value': {'toppage': toppage}}
 
-    def get_toppage_en(self, request:Request):
-        toppage = Toppage.get_toppage_en()
+    def toppage_en(self, request:Request):
+        toppage = Toppage.toppage_en()
         return {'value': {'toppage': toppage}}
     #----------------------------------------------------
-    def get_series(self, request:Request):
-        series = Series.get_series()
+    def series(self, request:Request):
+        series = Series.series()
         return{'value': {'series': series}}
 
-    def get_series_en(self, request:Request):
-        series = Series.get_series_en()
+    def series_en(self, request:Request):
+        series = Series.series_en()
         return{'value': {'series': series}}
     #----------------------------------------------------
-    def get_articles(self, request:Request):
+    def articles(self, request:Request):
         series_id = request.param('series_id')
-        series = Series.get_series_mono(series_id)
-        articles = Article.get_articles_by_series_id(series_id)
+        series = Series.series_mono(series_id)
+        articles = Article.articles_by_series_id(series_id)
         return {'value':{'series':series, 'articles': articles}}
 
-    def get_articles_en(self, request:Request):
+    def articles_en(self, request:Request):
         series_id = request.param('series_id')
-        series = Series.get_series_mono_en(series_id)
-        articles = Article.get_articles_by_series_id_en(series_id)
+        series = Series.series_mono_en(series_id)
+        articles = Article.articles_by_series_id_en(series_id)
         return {'value':{'series':series, 'articles': articles}}
     #-----------------------------------------------------
-    def get_article(self, request:Request):
+    def article(self, request:Request):
         timestamp = request.param('timestamp')
-        article = Article.get_article_by_timestamp(timestamp)
-        article['tags'] = Tag.get_tags_by_timestamp(timestamp)
+        article = Article.article_by_timestamp(timestamp)
+        article['tags'] = Tag.tags_by_timestamp(timestamp)
         return {'value': {'article': article}}
 
-    def get_article_en(self, request:Request):
+    def article_en(self, request:Request):
         timestamp = request.param('timestamp')
-        article = Article.get_article_by_timestamp_en(timestamp)
-        article['tags'] = Tag.get_tags_by_timestamp_en(timestamp)
+        article = Article.article_by_timestamp_en(timestamp)
+        article['tags'] = Tag.tags_by_timestamp_en(timestamp)
         return {'value': {'article': article}}
     #-----------------------------------------------------
-    def get_diaries(self, request:Request):
-        diaries = Article.get_diaries()
+    def diaries(self, request:Request):
+        diaries = Article.diaries()
         return{'value': {'diaries': diaries}}
 
-    def get_diaries_en(self, request:Request):
-        diaries = Article.get_diaries_en()
+    def diaries_en(self, request:Request):
+        diaries = Article.diaries_en()
         return{'value': {'diaries': diaries}}
     #-----------------------------------------------------
-    def get_articles_by_keyword(self, request:Request):
+    def articles_by_keyword(self, request:Request):
         keyword = request.input('keyword')
         if keyword == '':
             return {'value': ''}
 
-        articles = Article.get_articles_by_keyword(keyword)
+        articles = Article.articles_by_keyword(keyword)
         return {'value': {'keyword': keyword, 'articles': articles}}
 
-    def get_articles_by_keyword_en(self, request:Request):
+    def articles_by_keyword_en(self, request:Request):
         keyword = request.input('keyword')
         if keyword == '':
             return {'value': ''}
 
-        articles = Article.get_articles_by_keyword_en(keyword)
+        articles = Article.articles_by_keyword_en(keyword)
         return {'value': {'keyword': keyword, 'articles': articles}}
     #-----------------------------------------------------
-    def get_articles_by_tag_id(self, request:Request):
+    def articles_by_tag_id(self, request:Request):
         tag_id = request.param('tag_id')
-        tag = Tag.get_tag_name_by_tag_id(tag_id)
-        articles = Article.get_articles_by_tag_id(tag_id)
+        tag = Tag.tag_name_by_tag_id(tag_id)
+        articles = Article.articles_by_tag_id(tag_id)
         return {'value': {'tag': tag, 'articles': articles}}
 
-    def get_articles_by_tag_id_en(self, request:Request):
+    def articles_by_tag_id_en(self, request:Request):
         tag_id = request.param('tag_id')
-        tag = Tag.get_tag_name_by_tag_id_en(tag_id)
-        articles = Article.get_articles_by_tag_id_en(tag_id)
+        tag = Tag.tag_name_by_tag_id_en(tag_id)
+        articles = Article.articles_by_tag_id_en(tag_id)
         return {'value': {'tag': tag, 'articles': articles}}

@@ -26,7 +26,7 @@ class MainArticle extends React.Component{
       timestamp = window.location.pathname.split('/')[3];
     }
 
-    API.getArticle(timestamp)
+    API.article(timestamp)
     .then(response=>{
       this.setState({article: response.article});
     })

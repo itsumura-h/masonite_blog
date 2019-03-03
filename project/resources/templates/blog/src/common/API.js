@@ -3,98 +3,98 @@ import React from 'react';
 import Util from './Util';
 
 export default class API extends React.Component{
-  static getToppage=()=>{
+  static toppage=()=>{
     const language = window.localStorage.getItem('language');
     let url;
 
     if(language === 'ja' || !language){
-      url = '/blog/api/getToppage';
+      url = '/blog/api/toppage';
     }else{
-      url = '/blog/api/getToppage_en';
+      url = '/blog/api/toppage_en';
     }
 
     return Util.getAPIWithoutCache(url);
   }
 
 
-  static getSeries=()=>{
+  static series=()=>{
     const language = window.localStorage.getItem('language');
     let url;
 
     if(language === 'ja' || !language){
-      url = '/blog/api/getSeries';
+      url = '/blog/api/series';
     }else{
-      url = '/blog/api/getSeries_en';
+      url = '/blog/api/series_en';
     }
 
     return Util.getAPIWithoutCache(url);
   }
 
 
-  static getArticles=(series_id)=>{
+  static articles=(series_id)=>{
     const language = window.localStorage.getItem('language');
     let url;
 
     if(language === 'ja' || !language){
-      url = '/blog/api/getArticles/' + series_id;
+      url = '/blog/api/articles/' + series_id;
     }else{
-      url = '/blog/api/getArticles_en/' + series_id;
+      url = '/blog/api/articles_en/' + series_id;
     }
 
     return Util.getAPIWithoutCache(url);
   }
 
 
-  static getArticle=(timestamp)=>{
+  static article=(timestamp)=>{
     const language = window.localStorage.getItem('language');
     let url;
 
     if(language === 'ja' || !language){
-      url = '/blog/api/getArticle/' + timestamp;
+      url = '/blog/api/article/' + timestamp;
     }else{
-      url = '/blog/api/getArticle_en/' + timestamp;
+      url = '/blog/api/article_en/' + timestamp;
     }
 
     return Util.getAPIWithoutCache(url);
   }
 
 
-  static getDiaries=()=>{
+  static diaries=()=>{
     const language = window.localStorage.getItem('language');
     let url;
 
     if(language === 'ja' || !language){
-      url = '/blog/api/getDiaries';
+      url = '/blog/api/diaries';
     }else{
-      url = '/blog/api/getDiaries_en';
+      url = '/blog/api/diaries_en';
     }
 
     return Util.getAPIWithoutCache(url);
   }
 
 
-  static getArticlesByKeyword=(keyword)=>{
+  static articlesByKeyword=(keyword)=>{
     const language = window.localStorage.getItem('language');
     let url;
 
     if(language === 'ja' || !language){
-      url = '/blog/api/getArticlesByKeyword?keyword=' + keyword;
+      url = '/blog/api/articlesByKeyword?keyword=' + keyword;
     }else{
-      url = '/blog/api/getArticlesByKeyword_en?keyword=' + keyword;
+      url = '/blog/api/articlesByKeyword_en?keyword=' + keyword;
     }
 
     return Util.getAPI(url);
   }
 
 
-  static getArticlesByTagId=(tagId)=>{
+  static articlesByTagId=(tagId)=>{
     const language = window.localStorage.getItem('language');
     let url;
 
     if(language === 'ja' || !language){
-      url = '/blog/api/getArticlesByTagId/' + tagId;
+      url = '/blog/api/articlesByTagId/' + tagId;
     }else{
-      url = '/blog/api/getArticlesByTagId_en/' + tagId;
+      url = '/blog/api/articlesByTagId_en/' + tagId;
     }
 
     return Util.getAPI(url);
@@ -102,28 +102,28 @@ export default class API extends React.Component{
 
   //_/_/_/_/_/_/_/_/_/  以下未使用  /_/_/_/_/_/_/_/_/_/_/_/_/_/
 
-  static getLatests=()=>{
+  static latests=()=>{
     const language = window.localStorage.getItem('language');
     let url;
 
     if(language === 'ja' || !language){
-      url = '/blog/api/getLatests'
+      url = '/blog/api/latests'
     }else{
-      url = '/blog/api/getLatests_en'
+      url = '/blog/api/latests_en'
     }
 
     return Util.getAPI(url);
   }
 
 
-  static getAllArticles=()=>{
+  static allArticles=()=>{
     const language = window.localStorage.getItem('language');
     let url;
 
     if(language === 'ja' || !language){
-      url = '/blog/api/getAllArticles'
+      url = '/blog/api/allArticles'
     }else{
-      url = '/blog/api/getAllArticles_en'
+      url = '/blog/api/allArticles_en'
     }
 
     return Util.getAPI(url);

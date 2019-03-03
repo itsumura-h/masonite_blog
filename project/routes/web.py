@@ -14,26 +14,26 @@ ROUTES = [
 
     RouteGroup([
         RouteGroup([
-            get('/getToppage', BlogController.get_toppage),
-            get('/getToppage_en', BlogController.get_toppage_en),
+            get('/toppage', BlogController.toppage),
+            get('/toppage_en', BlogController.toppage_en),
 
-            get('/getSeries', BlogController.get_series),
-            get('/getSeries_en', BlogController.get_series_en),
+            get('/series', BlogController.series),
+            get('/series_en', BlogController.series_en),
 
-            get('/getArticles/@series_id:int', BlogController.get_articles),
-            get('/getArticles_en/@series_id:int', BlogController.get_articles_en),
+            get('/articles/@series_id:int', BlogController.articles),
+            get('/articles_en/@series_id:int', BlogController.articles_en),
 
-            get('/getArticle/@timestamp:int', BlogController.get_article),
-            get('/getArticle_en/@timestamp:int', BlogController.get_article_en),
+            get('/article/@timestamp:int', BlogController.article),
+            get('/article_en/@timestamp:int', BlogController.article_en),
 
-            get('/getDiaries', BlogController.get_diaries),
-            get('/getDiaries_en', BlogController.get_diaries_en),
+            get('/diaries', BlogController.diaries),
+            get('/diaries_en', BlogController.diaries_en),
 
-            get('/getArticlesByKeyword', BlogController.get_articles_by_keyword),
-            get('/getArticlesByKeyword_en', BlogController.get_articles_by_keyword_en),
+            get('/articlesByKeyword', BlogController.articles_by_keyword),
+            get('/articlesByKeyword_en', BlogController.articles_by_keyword_en),
 
-            get('/getArticlesByTagId/@tag_id:int', BlogController.get_articles_by_tag_id),
-            get('/getArticlesByTagId_en/@tag_id:int', BlogController.get_articles_by_tag_id_en),
+            get('/articlesByTagId/@tag_id:int', BlogController.articles_by_tag_id),
+            get('/articlesByTagId_en/@tag_id:int', BlogController.articles_by_tag_id_en),
         ], prefix='/api'),
 
         get('', BlogController.show),

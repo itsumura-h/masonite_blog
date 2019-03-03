@@ -18,7 +18,7 @@ export default class MainToppage extends React.Component{
   }
 
   getToppage=()=>{
-    API.getToppage()
+    API.toppage()
     .then(response=>{
       this.setState({
         title: response.toppage.title,
@@ -27,7 +27,7 @@ export default class MainToppage extends React.Component{
       });
     })
     .catch(err=>{
-      console.error('API.getToppage error');
+      console.error('API.toppage error');
     })
   }
 

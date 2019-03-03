@@ -31,12 +31,12 @@ class ClassAppBar extends React.Component {
   }
 
   getToppage=()=>{
-    API.getToppage()
+    API.toppage()
     .then(response=>{
       this.setState({title: response.toppage.title});
     })
     .catch(err=>{
-      console.error('API.getToppage error');
+      console.error('API.toppage error');
     })
   }
 
@@ -67,7 +67,7 @@ class ClassAppBar extends React.Component {
           <Fab
             variant="extended"
             onClick={this.changeLanguage}
-            hrefLang={window.localStorage.getItem('language') == "en"? "ja": "en"}
+            hrefLang={window.localStorage.getItem('language') === "en"? "ja": "en"}
           >
             <Translate/>
             {I18N.EnglishButton}

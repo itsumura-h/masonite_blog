@@ -9,7 +9,7 @@ class Article(Model):
     __table__ = 'articles'
 
     @staticmethod
-    def get_articles_by_series_id(series_id):
+    def articles_by_series_id(series_id):
         return Article \
             .select('id', 'title', 'timestamp') \
             .where('series_id', series_id) \
@@ -18,7 +18,7 @@ class Article(Model):
             .serialize()
 
     @staticmethod
-    def get_articles_by_series_id_en(series_id):
+    def articles_by_series_id_en(series_id):
         return Article \
             .select('id', 'title_en AS title', 'timestamp') \
             .where('series_id', series_id) \
@@ -27,7 +27,7 @@ class Article(Model):
             .serialize()
     #------------------------------------------------------
     @staticmethod
-    def get_article_by_timestamp(timestamp):
+    def article_by_timestamp(timestamp):
         article = Article \
             .select(
                 'title',
@@ -46,7 +46,7 @@ class Article(Model):
             return {}
 
     @staticmethod
-    def get_article_by_timestamp_en(timestamp):
+    def article_by_timestamp_en(timestamp):
         article = Article \
             .select(
                 'title_en AS title',
@@ -65,7 +65,7 @@ class Article(Model):
             return {}
     #------------------------------------------------------
     @staticmethod
-    def get_diaries():
+    def diaries():
         return Article.select('title', 'timestamp') \
             .where_null('series_id') \
             .where('is_private', '!=', True) \
@@ -75,7 +75,7 @@ class Article(Model):
             .serialize()
 
     @staticmethod
-    def get_diaries_en():
+    def diaries_en():
         return Article.select('title_en AS title', 'timestamp') \
             .where_null('series_id') \
             .where('is_private', '!=', True) \
@@ -85,7 +85,7 @@ class Article(Model):
             .serialize()
     #------------------------------------------------------
     @staticmethod
-    def get_articles_by_keyword(keyword):
+    def articles_by_keyword(keyword):
         return Article \
             .select(
                 'title',
@@ -97,7 +97,7 @@ class Article(Model):
             .serialize()
 
     @staticmethod
-    def get_articles_by_keyword_en(keyword):
+    def articles_by_keyword_en(keyword):
         return Article \
             .select(
                 'title_en AS title',
@@ -109,7 +109,7 @@ class Article(Model):
             .serialize()
     #------------------------------------------------------
     @staticmethod
-    def get_articles_by_tag_id(tag_id):
+    def articles_by_tag_id(tag_id):
         return Article \
             .select(
                 'articles.title',
@@ -123,7 +123,7 @@ class Article(Model):
             .serialize()
 
     @staticmethod
-    def get_articles_by_tag_id_en(tag_id):
+    def articles_by_tag_id_en(tag_id):
         return Article \
             .select(
                 'articles.title_en AS title',

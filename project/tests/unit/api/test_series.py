@@ -14,7 +14,7 @@ class TestToppage(UnitTest):
             .where('articles.is_private', '!=', True) \
             .get()
 
-        _response = self.json('/blog/api/getSeries', None,
+        _response = self.json('/blog/api/series', None,
                           method="GET").container.make('Response')
         self.response = json.loads(_response)
 
@@ -25,19 +25,19 @@ class TestToppage(UnitTest):
             .where('articles.is_private', '!=', True) \
             .get()
 
-        _response_en = self.json('/blog/api/getSeries_en', None,
+        _response_en = self.json('/blog/api/series_en', None,
                           method="GET").container.make('Response')
         self.response_en = json.loads(_response_en)
 
     def test_url_available(self):
-        assert self.route('/blog/api/getSeries').ok()
-        assert self.route('/blog/api/getSeries_en').ok()
+        assert self.route('/blog/api/series').ok()
+        assert self.route('/blog/api/series_en').ok()
 
     def test_has_controller(self):
         assert self.route(
-            '/blog/api/getSeries').has_controller(BlogController)
+            '/blog/api/series').has_controller(BlogController)
         assert self.route(
-            '/blog/api/getSeries_en').has_controller(BlogController)
+            '/blog/api/series_en').has_controller(BlogController)
 
     def test_api(self):
         assert self.model.serialize() == self.response['value']['series']

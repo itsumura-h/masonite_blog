@@ -22,7 +22,7 @@ export default class MainSeriesArcive extends React.Component{
 
   getArticles=()=>{
     const series_id = window.location.pathname.split('/')[3];
-    API.getArticles(series_id)
+    API.articles(series_id)
     .then(response=>{
       this.setState({
         series: response.series,
@@ -30,7 +30,7 @@ export default class MainSeriesArcive extends React.Component{
       });
     })
     .catch(err=>{
-      console.error('API.getArticles error');
+      console.error('API.articles error');
     })
   }
 
