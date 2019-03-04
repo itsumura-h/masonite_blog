@@ -9,7 +9,7 @@ class Tag(Model):
     __table__ = 'tags'
 
     @staticmethod
-    def tags_by_timestamp(timestamp):
+    def get_tags_by_timestamp(timestamp):
         return Tag \
             .select('tags.id', 'tag') \
             .left_join('tagmaps', 'tags.id', '=', 'tagmaps.tag_id') \
@@ -19,7 +19,7 @@ class Tag(Model):
             .serialize()
 
     @staticmethod
-    def tags_by_timestamp_en(timestamp):
+    def get_tags_by_timestamp_en(timestamp):
         return Tag \
             .select('tags.id', 'tag_en AS tag') \
             .left_join('tagmaps', 'tags.id', '=', 'tagmaps.tag_id') \
@@ -29,14 +29,14 @@ class Tag(Model):
             .serialize()
     #------------------------------------------------
     @staticmethod
-    def tag_name_by_tag_id(tag_id):
+    def get_tag_name_by_tag_id(tag_id):
         return Tag \
             .select('tag') \
             .find(tag_id) \
             .serialize()
 
     @staticmethod
-    def tag_name_by_tag_id_en(tag_id):
+    def get_tag_name_by_tag_id_en(tag_id):
         return Tag \
             .select('tag_en AS tag') \
             .find(tag_id) \

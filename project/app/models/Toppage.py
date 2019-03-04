@@ -21,7 +21,7 @@ class Toppage(Model):
     __table__ = 'toppage'
 
     @staticmethod
-    def toppage():
+    def get_toppage():
         return Toppage \
             .select(
                 'title',
@@ -31,7 +31,7 @@ class Toppage(Model):
             .find(1)
 
     @staticmethod
-    def toppage_en():
+    def get_toppage_en():
         return Toppage \
             .select(
                 'title_en AS title',

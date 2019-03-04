@@ -8,7 +8,7 @@ class Series(Model):
     __table__ = 'series'
 
     @staticmethod
-    def series():
+    def get_series():
         return Series.select('series.id', 'series.title') \
             .distinct() \
             .join('articles', 'series.id', '=', 'articles.series_id') \
@@ -17,7 +17,7 @@ class Series(Model):
             .serialize()
 
     @staticmethod
-    def series_en():
+    def get_series_en():
         return Series.select('series.id', 'series.title_en AS title') \
             .distinct() \
             .join('articles', 'series.id', '=', 'articles.series_id') \
@@ -26,9 +26,9 @@ class Series(Model):
             .serialize()
     #--------------------------------------------------------------------------------------------
     @staticmethod
-    def series_mono(series_id):
+    def get_series_mono(series_id):
         return Series.select('id', 'title').where('id', series_id).first().serialize()
 
     @staticmethod
-    def series_mono_en(series_id):
+    def get_series_mono_en(series_id):
         return Series.select('id', 'title_en AS title').where('id', series_id).first().serialize()
