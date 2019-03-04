@@ -3,7 +3,7 @@ import React from 'react';
 import Util from './Util';
 
 export default class API extends React.Component{
-  static toppage=()=>{
+  static getToppage=()=>{
     const language = window.localStorage.getItem('language');
     let url;
 
@@ -17,7 +17,7 @@ export default class API extends React.Component{
   }
 
 
-  static series=()=>{
+  static getSeries=()=>{
     const language = window.localStorage.getItem('language');
     let url;
 
@@ -31,7 +31,7 @@ export default class API extends React.Component{
   }
 
 
-  static articles=(series_id)=>{
+  static getArticles=(series_id)=>{
     const language = window.localStorage.getItem('language');
     let url;
 
@@ -45,7 +45,7 @@ export default class API extends React.Component{
   }
 
 
-  static article=(timestamp)=>{
+  static getArticle=(timestamp)=>{
     const language = window.localStorage.getItem('language');
     let url;
 
@@ -59,7 +59,7 @@ export default class API extends React.Component{
   }
 
 
-  static diaries=()=>{
+  static getDiaries=()=>{
     const language = window.localStorage.getItem('language');
     let url;
 
@@ -73,7 +73,7 @@ export default class API extends React.Component{
   }
 
 
-  static articlesByKeyword=(keyword)=>{
+  static getArticlesByKeyword=(keyword)=>{
     const language = window.localStorage.getItem('language');
     let url;
 
@@ -87,7 +87,7 @@ export default class API extends React.Component{
   }
 
 
-  static articlesByTagId=(tagId)=>{
+  static getArticlesByTagId=(tagId)=>{
     const language = window.localStorage.getItem('language');
     let url;
 
@@ -102,7 +102,7 @@ export default class API extends React.Component{
 
   //_/_/_/_/_/_/_/_/_/  以下未使用  /_/_/_/_/_/_/_/_/_/_/_/_/_/
 
-  static latests=()=>{
+  static getLatests=()=>{
     const language = window.localStorage.getItem('language');
     let url;
 
@@ -116,7 +116,7 @@ export default class API extends React.Component{
   }
 
 
-  static allArticles=()=>{
+  static getAllArticles=()=>{
     const language = window.localStorage.getItem('language');
     let url;
 

@@ -26,7 +26,7 @@ export default class MainSearch extends React.Component{
 
   getArticlesByKeyword=(searchWord)=>{
     if(searchWord.length > 0){
-      API.articlesByKeyword(searchWord)
+      API.getArticlesByKeyword(searchWord)
       .then(response=>{
         this.setState({
           isMounted: true,
@@ -35,13 +35,13 @@ export default class MainSearch extends React.Component{
         });
       })
       .catch(err=>{
-        console.error('API.articlesByKeyword() error');
+        console.error('API.getArticlesByKeyword() error');
       })
     }
   }
 
   getArticlesByTagId=(tagId)=>{
-    API.articlesByTagId(tagId)
+    API.getArticlesByTagId(tagId)
     .then(response=>{
       this.setState({
         isMounted: true,
@@ -50,7 +50,7 @@ export default class MainSearch extends React.Component{
       });
     })
     .catch(err=>{
-      console.error('API.articlesByTagId() error');
+      console.error('API.getArticlesByTagId() error');
     })
   }
 

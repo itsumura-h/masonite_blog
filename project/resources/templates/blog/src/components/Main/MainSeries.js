@@ -20,7 +20,7 @@ export default class MainToppage extends React.Component{
   }
 
   getSeries=()=>{
-    API.series()
+    API.getSeries()
     .then(response=>{
       this.setState({
         isMounted: true,
@@ -28,7 +28,7 @@ export default class MainToppage extends React.Component{
       });
     })
     .catch(err=>{
-      console.error('API.series error');
+      console.error('API.getSeries error');
     })
   }
 

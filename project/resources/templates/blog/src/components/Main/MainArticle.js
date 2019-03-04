@@ -26,12 +26,12 @@ class MainArticle extends React.Component{
       timestamp = window.location.pathname.split('/')[3];
     }
 
-    API.article(timestamp)
+    API.getArticle(timestamp)
     .then(response=>{
       this.setState({article: response.article});
     })
     .catch(err=>{
-      console.error(err);
+      console.error('API.getArticle error');
     })
   }
 

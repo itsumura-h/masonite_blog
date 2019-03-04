@@ -31,7 +31,7 @@ class ClassAppBar extends React.Component {
   }
 
   getToppage=()=>{
-    API.toppage()
+    API.getToppage()
     .then(response=>{
       this.setState({title: response.toppage.title});
     })

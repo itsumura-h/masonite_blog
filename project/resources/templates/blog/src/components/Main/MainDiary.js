@@ -20,7 +20,7 @@ export default class MainDiary extends React.Component{
   }
 
   getDiaries=()=>{
-    API.diaries()
+    API.getDiaries()
     .then(response=>{
       this.setState({
         isMounted: true,
@@ -28,7 +28,7 @@ export default class MainDiary extends React.Component{
       });
     })
     .catch(err=>{
-      console.error('API.diaries error');
+      console.error('API.getDiaries error');
     })
   }
 
