@@ -3,7 +3,6 @@ from masonite.testing import UnitTest
 from app.http.controllers.BlogController import BlogController
 from app.models.Series import Series
 from app.models.Article import Article
-
 import json
 
 
