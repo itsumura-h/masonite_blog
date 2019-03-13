@@ -1,4 +1,3 @@
-import pytest
 from masonite.testing import UnitTest
 from app.http.controllers.BlogController import BlogController
 from app.models.Series import Series

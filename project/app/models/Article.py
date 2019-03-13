@@ -92,7 +92,7 @@ class Article(Model):
                 'timestamp'
             ) \
             .where('is_private', '!=', True) \
-            .where('article_md', 'like', '%'+keyword+'%') \
+            .where('article_md', 'like', '%{keyword}%'.format(keyword=keyword)) \
             .get() \
             .serialize()
 
@@ -104,7 +104,7 @@ class Article(Model):
                 'timestamp'
             ) \
             .where('is_private', '!=', True) \
-            .where('article_md_en', 'like', '%'+keyword+'%') \
+            .where('article_md_en', 'like', '%{keyword}%'.format(keyword=keyword)) \
             .get() \
             .serialize()
     #------------------------------------------------------
