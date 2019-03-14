@@ -10,7 +10,7 @@ from app.http.controllers.BlogController import BlogController
 ROUTES = [
     #Get().route('/', 'WelcomeController@show').name('welcome'),
     #get('/', BlogController.redirect),
-    Redirect('/', '/blog', status=302, methods=['GET']),
+    Redirect('/', '/blog/'),
 
     RouteGroup([
         RouteGroup([

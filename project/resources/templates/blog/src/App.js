@@ -27,9 +27,9 @@ class App extends Component {
 
   componentDidMount(){
     //ルートアクセスでリダイレクト
-    if(window.location.pathname === '/'){
-      window.location.href = '/blog/';
-    }
+    // if(window.location.pathname === '/'){
+    //   window.location.href = '/blog/';
+    // }
 
     //スマホorPC
     this.checkMobile();

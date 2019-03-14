@@ -99,7 +99,7 @@ class ClassMain extends React.Component {
             )}
           />
           <Route>
-            <Redirect to="/blog"/>
+            <Redirect to="/blog/"/>
           </Route>
         </Switch>
       </Card>
