@@ -98,9 +98,9 @@ class ClassMain extends React.Component {
               />
             )}
           />
-          {/* <Route>
+          <Route>
             <Redirect to="/blog/"/>
-          </Route> */}
+          </Route>
         </Switch>
       </Card>
     );
