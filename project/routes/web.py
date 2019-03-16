@@ -13,6 +13,13 @@ ROUTES = [
     Redirect('/', '/blog/'),
 
     RouteGroup([
+        get('', BlogController.show),
+        get('/@a', BlogController.show),
+        get('/@a/@b', BlogController.show),
+        get('/@a/@b/@c', BlogController.show),
+    ], prefix='/blog'),
+
+    RouteGroup([
         RouteGroup([
             get('/toppage', BlogController.get_toppage),
             get('/toppage_en', BlogController.get_toppage_en),
@@ -34,11 +41,6 @@ ROUTES = [
 
             get('/articlesByTagId/@tag_id:int', BlogController.get_articles_by_tag_id),
             get('/articlesByTagId_en/@tag_id:int', BlogController.get_articles_by_tag_id_en),
-        ], prefix='/api'),
-
-        get('', BlogController.show),
-        get('/@a', BlogController.show),
-        get('/@a/@b', BlogController.show),
-        get('/@a/@b/@c', BlogController.show),
-    ], prefix='/blog'),
+        ], prefix='/blog'),
+    ], prefix='/api')
 ]
