@@ -49,18 +49,4 @@ class App extends PureComponent {
   }
 }
 
-
-// const App =()=>{
-//   return (
-//     <BrowserRouter>
-//       <div className="App">
-//         <ClassAppBar />
-//         <ClassTabs />
-//         <ClassMain />
-//       </div>
-//     </BrowserRouter>
-//   );
-// }
-
-
 export default App;

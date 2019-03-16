@@ -9,7 +9,7 @@
       "type": "image/x-icon"
     }
   ],
-  "scope": "/blog",
+  "scope": "/",
   "start_url": "/blog?utm_source=homescreen",
   "display": "standalone",
   "theme_color": "#000000",
