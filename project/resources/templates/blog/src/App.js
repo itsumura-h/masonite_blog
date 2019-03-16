@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component, PureComponent } from 'react';
 import { BrowserRouter } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 
 //import logo from './logo.svg';
 import './App.css';
@@ -13,19 +14,19 @@ import ClassMain from './components/Main';
 //https://qiita.com/koba04/items/66e9c5be8f2e31f28461
 
 
-class App extends Component {
+class App extends PureComponent {
 
   checkMobile=()=>{
     window.sessionStorage.removeItem('mobile');
 
-    if(document.body.clientWidth < 800){
+    if (document.body.clientWidth < 800) {
       window.sessionStorage.mobile = true;
     }
   }
 
   //_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/
 
-  componentDidMount(){
+  componentDidMount() {
     //ルートアクセスでリダイレクト
     // if(window.location.pathname === '/'){
     //   window.location.href = '/blog/';
@@ -39,14 +40,27 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div className="App">
-          <ClassAppBar/>
-          <ClassTabs/>
-          <ClassMain/>
+          <ClassAppBar />
+          <ClassTabs />
+          <ClassMain />
         </div>
       </BrowserRouter>
     );
   }
 }
 
-export default App;
 
+// const App =()=>{
+//   return (
+//     <BrowserRouter>
+//       <div className="App">
+//         <ClassAppBar />
+//         <ClassTabs />
+//         <ClassMain />
+//       </div>
+//     </BrowserRouter>
+//   );
+// }
+
+
+export default App;

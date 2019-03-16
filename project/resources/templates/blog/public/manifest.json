@@ -1,6 +1,7 @@
 {
   "short_name": "Dumblepy",
-  "name": "Dumblepy Pythonista Tech Blog",
+  "name": "Dumblepy",
+  "description": "Pythonista Tech Blog",
   "icons": [
     {
       "src": "favicon.ico",
@@ -8,8 +9,9 @@
       "type": "image/x-icon"
     }
   ],
-  "start_url": "/?utm_source=homescreen",
+  "scope": "/blog",
+  "start_url": "/blog?utm_source=homescreen",
   "display": "standalone",
   "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "background_color": "#bbbbbb"
 }

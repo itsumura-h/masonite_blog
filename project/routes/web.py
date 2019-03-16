@@ -10,10 +10,8 @@ from app.http.controllers.BlogController import BlogController
 ROUTES = [
     #Get().route('/', 'WelcomeController@show').name('welcome'),
     #get('/', BlogController.redirect),
-    Redirect('/', '/blog/'),
-
     RouteGroup([
-        get('', BlogController.show),
+        get('/', BlogController.show),
         get('/@a', BlogController.show),
         get('/@a/@b', BlogController.show),
         get('/@a/@b/@c', BlogController.show),
@@ -42,5 +40,9 @@ ROUTES = [
             get('/articlesByTagId/@tag_id:int', BlogController.get_articles_by_tag_id),
             get('/articlesByTagId_en/@tag_id:int', BlogController.get_articles_by_tag_id_en),
         ], prefix='/blog'),
-    ], prefix='/api')
+    ], prefix='/api'),
+
+    get('/masonite', WelcomeController.show),
+
+    Redirect('/', '/blog/'),
 ]

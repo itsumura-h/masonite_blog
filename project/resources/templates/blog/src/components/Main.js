@@ -82,7 +82,7 @@ class ClassMain extends React.Component {
               />
             )}
           />
-          <Route path="/blog/search/"
+          <Route exact path="/blog/search/"
             render={props=>(
               <MainSearch
                 routeProps={props}
@@ -90,7 +90,7 @@ class ClassMain extends React.Component {
               />
             )}
           />
-          <Route path="/blog/products/"
+          <Route exact path="/blog/products/"
             render={props=>(
               <MainProducts
                 routeProps={props}
@@ -98,7 +98,7 @@ class ClassMain extends React.Component {
               />
             )}
           />
-          <Route>
+          <Route path='/blog/'>
             <Redirect to="/blog/"/>
           </Route>
         </Switch>
