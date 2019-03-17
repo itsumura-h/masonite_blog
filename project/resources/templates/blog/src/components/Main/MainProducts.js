@@ -14,53 +14,8 @@ import API from '../../common/API';
 import I18N from '../../common/I18N';
 
 export default class MainProducts extends React.Component{
-  state = {
-    isMounted: false,
-    series: [],
-  }
-
-  getSeries=()=>{
-    API.getSeries()
-    .then(response=>{
-      this.setState({
-        isMounted: true,
-        series: response.series
-      });
-    })
-    .catch(err=>{
-      console.error('API.getSeries error');
-    })
-  }
-
-//   componentDidMount(){
-//     this.getSeries();
-//   }
 
   render(){
-    const series = this.state.series;
-    let series_list = [];
-
-    for(let i in series){
-      series_list.push(
-        <Link to={'/blog/series/' + series[i].id} key={i}>
-          <ListItem button>
-            <ListItemIcon>
-              <TouchApp/>
-            </ListItemIcon>
-            <ListItemText primary={series[i].title} />
-          </ListItem>
-        </Link>
-      );
-    }
-
-    if(this.state.isMounted && series.length === 0){
-      series_list.push(
-          <ListItem>
-            <ListItemText primary={I18N.articlesNotFound} />
-          </ListItem>
-      );
-    }
-
     return (
       <Card
         className={this.props.appProps.classes.main}
@@ -68,8 +23,7 @@ export default class MainProducts extends React.Component{
       >
         <h2>{I18N.productsList}</h2>
         <List component="nav">
-          {series_list}
-          <Link to='/products/vocaburary'  key={0}>
+          <Link to='/products/vocabulary'  key={0}>
             <ListItem button>
               <ListItemIcon>
                 <TouchApp/>

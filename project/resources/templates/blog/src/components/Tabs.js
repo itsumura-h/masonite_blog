@@ -49,10 +49,10 @@ class ClassTabs extends React.Component {
             <TouchApp/>
             {I18N.searchTab}
           </Button>
-          {/* <Button component={Link} to="/blog/products/" disabled={pathname === '/blog/products/'? true: false} className={classes.products + ' TabWhite'}>
+          <Button component={Link} to="/blog/products/" disabled={pathname === '/blog/products/'? true: false} className={classes.products + ' TabWhite'}>
             <TouchApp/>
             {I18N.productsTab}
-          </Button> */}
+          </Button>
         </Tabs>
       </AppBar>
     );
@@ -89,7 +89,7 @@ const styles = {
     backgroundColor: 'green !important'
   },
   products: {
-    backgroundColor: 'blue !important'
+    backgroundColor: '#33f !important'
   }
 }
 
