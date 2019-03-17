@@ -15,6 +15,10 @@ import I18N from '../../common/I18N';
 
 export default class MainProducts extends React.Component{
 
+  vocabulary=()=>{
+    window.location.href = '/products/vocabulary';
+  }
+
   render(){
     return (
       <Card
@@ -23,14 +27,14 @@ export default class MainProducts extends React.Component{
       >
         <h2>{I18N.productsList}</h2>
         <List component="nav">
-          <Link to='/products/vocabulary'  key={0}>
-            <ListItem button>
+          {/* <Link to='/products/vocabulary' key={0}> */}
+            <ListItem button onClick={this.vocabulary}>
               <ListItemIcon>
                 <TouchApp/>
               </ListItemIcon>
               <ListItemText primary='英単語' />
             </ListItem>
-          </Link>
+          {/* </Link> */}
         </List>
       </Card>
     );
