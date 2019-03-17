@@ -98,7 +98,10 @@ class ClassMain extends React.Component {
               />
             )}
           />
-          <Route path='/blog/'>
+          <Route exact path="/">
+            <Redirect to="/blog/"/>
+          </Route>
+          <Route path="/blog/(.*)">
             <Redirect to="/blog/"/>
           </Route>
         </Switch>
