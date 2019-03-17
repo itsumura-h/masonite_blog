@@ -8,12 +8,13 @@ export default class API extends React.Component{
     let url;
 
     if(language === 'ja' || !language){
-      url = '/blog/api/toppage';
+      url = '/api/blog/toppage';
     }else{
-      url = '/blog/api/toppage_en';
+      url = '/api/blog/toppage_en';
     }
 
-    return Util.getAPIWithoutCache(url);
+    //return Util.getAPIWithoutCache(url);
+    return Util.getAPI(url);
   }
 
 
@@ -22,12 +23,13 @@ export default class API extends React.Component{
     let url;
 
     if(language === 'ja' || !language){
-      url = '/blog/api/series';
+      url = '/api/blog/series';
     }else{
-      url = '/blog/api/series_en';
+      url = '/api/blog/series_en';
     }
 
     return Util.getAPIWithoutCache(url);
+    //return Util.getAPI(url);
   }
 
 
@@ -36,12 +38,13 @@ export default class API extends React.Component{
     let url;
 
     if(language === 'ja' || !language){
-      url = '/blog/api/articles/' + series_id;
+      url = '/api/blog/articles/' + series_id;
     }else{
-      url = '/blog/api/articles_en/' + series_id;
+      url = '/api/blog/articles_en/' + series_id;
     }
 
     return Util.getAPIWithoutCache(url);
+    //return Util.getAPI(url);
   }
 
 
@@ -50,12 +53,13 @@ export default class API extends React.Component{
     let url;
 
     if(language === 'ja' || !language){
-      url = '/blog/api/article/' + timestamp;
+      url = '/api/blog/article/' + timestamp;
     }else{
-      url = '/blog/api/article_en/' + timestamp;
+      url = '/api/blog/article_en/' + timestamp;
     }
 
     return Util.getAPIWithoutCache(url);
+    //return Util.getAPI(url);
   }
 
 
@@ -64,12 +68,13 @@ export default class API extends React.Component{
     let url;
 
     if(language === 'ja' || !language){
-      url = '/blog/api/diaries';
+      url = '/api/blog/diaries';
     }else{
-      url = '/blog/api/diaries_en';
+      url = '/api/blog/diaries_en';
     }
 
     return Util.getAPIWithoutCache(url);
+    //return Util.getAPI(url);
   }
 
 
@@ -78,9 +83,9 @@ export default class API extends React.Component{
     let url;
 
     if(language === 'ja' || !language){
-      url = '/blog/api/articlesByKeyword?keyword=' + keyword;
+      url = '/api/blog/articlesByKeyword?keyword=' + keyword;
     }else{
-      url = '/blog/api/articlesByKeyword_en?keyword=' + keyword;
+      url = '/api/blog/articlesByKeyword_en?keyword=' + keyword;
     }
 
     return Util.getAPI(url);
@@ -92,9 +97,9 @@ export default class API extends React.Component{
     let url;
 
     if(language === 'ja' || !language){
-      url = '/blog/api/articlesByTagId/' + tagId;
+      url = '/api/blog/articlesByTagId/' + tagId;
     }else{
-      url = '/blog/api/articlesByTagId_en/' + tagId;
+      url = '/api/blog/articlesByTagId_en/' + tagId;
     }
 
     return Util.getAPI(url);
@@ -107,9 +112,9 @@ export default class API extends React.Component{
     let url;
 
     if(language === 'ja' || !language){
-      url = '/blog/api/latests'
+      url = '/api/blog/latests'
     }else{
-      url = '/blog/api/latests_en'
+      url = '/api/blog/latests_en'
     }
 
     return Util.getAPI(url);
@@ -121,9 +126,9 @@ export default class API extends React.Component{
     let url;
 
     if(language === 'ja' || !language){
-      url = '/blog/api/allArticles'
+      url = '/api/blog/allArticles'
     }else{
-      url = '/blog/api/allArticles_en'
+      url = '/api/blog/allArticles_en'
     }
 
     return Util.getAPI(url);

@@ -58,7 +58,7 @@ STATICFILES = {
     # folder          # template alias
     'resources/templates/blog/build/': '/',
     #'storage/static': 'static/',
-    #'storage/compiled': 'static/',
+    'storage/compiled': 'static/',
     #'storage/uploads': 'static/',
     #'storage/public': '/',
 }
