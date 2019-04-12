@@ -21,27 +21,27 @@ class TestDiaries(UnitTest):
             .get() \
             .serialize()
 
-        _response = self.json('/blog/api/diaries', None,
+        _response = self.json('/api/blog/diaries', None,
                               method="GET").container.make('Response')
         self.response = json.loads(_response)
 
-        _response_en = self.json('/blog/api/diaries_en', None,
+        _response_en = self.json('/api/blog/diaries_en', None,
                                  method="GET").container.make('Response')
         self.response_en = json.loads(_response_en)
 
     def test_url_exists(self):
-        assert self.route('/blog/api/diaries')
-        assert self.route('/blog/api/diaries_en')
+        assert self.route('/api/blog/diaries')
+        assert self.route('/api/blog/diaries_en')
 
     def test_url_available(self):
-        assert self.json('/blog/api/diaries', None, method='GET').ok()
-        assert self.json('/blog/api/diaries_en', None, method='GET').ok()
+        assert self.json('/api/blog/diaries', None, method='GET').ok()
+        assert self.json('/api/blog/diaries_en', None, method='GET').ok()
 
     def test_has_controller(self):
         assert self.route(
-            '/blog/api/diaries').has_controller(BlogController)
+            '/api/blog/diaries').has_controller(BlogController)
         assert self.route(
-            '/blog/api/diaries_en').has_controller(BlogController)
+            '/api/blog/diaries_en').has_controller(BlogController)
 
     def test_api(self):
         assert self.diaries == self.response['value']['diaries']

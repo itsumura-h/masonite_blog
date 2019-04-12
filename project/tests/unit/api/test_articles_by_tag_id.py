@@ -33,29 +33,29 @@ class TestArticlesByKeyword(UnitTest):
 
         # _/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/
 
-        _response = self.json('/blog/api/articlesByTagId/1', None,
+        _response = self.json('/api/blog/articlesByTagId/1', None,
                               method="GET").container.make('Response')
         self.response = json.loads(_response)
 
-        _response_en = self.json('/blog/api/articlesByTagId_en/1', None,
+        _response_en = self.json('/api/blog/articlesByTagId_en/1', None,
                                 method = "GET").container.make('Response')
         self.response_en = json.loads(_response_en)
 
     def test_route_exists(self):
-        assert self.route('/blog/api/articlesByTagId/@tag_id:int')
-        assert self.route('/blog/api/articlesByTagId_en/@tag_id:int')
+        assert self.route('/api/blog/articlesByTagId/@tag_id:int')
+        assert self.route('/api/blog/articlesByTagId_en/@tag_id:int')
 
     def test_url_available(self):
-        assert self.json('/blog/api/articlesByTagId/1',
+        assert self.json('/api/blog/articlesByTagId/1',
                          None, method = 'GET').ok()
-        assert self.json('/blog/api/articlesByTagId_en/1',
+        assert self.json('/api/blog/articlesByTagId_en/1',
                          None, method = 'GET').ok()
 
     def test_has_controller(self):
         assert self.route(
-            '/blog/api/articlesByTagId/@tag_id:int').has_controller(BlogController)
+            '/api/blog/articlesByTagId/@tag_id:int').has_controller(BlogController)
         assert self.route(
-            '/blog/api/articlesByTagId_en/@tag_id:int').has_controller(BlogController)
+            '/api/blog/articlesByTagId_en/@tag_id:int').has_controller(BlogController)
 
     def test_api(self):
         assert self.articles == self.response['value']['articles']

@@ -53,30 +53,43 @@ class TestArticles(UnitTest):
             .serialize()
 
         #レスポンス取得
-        _response = self.json(f'/blog/api/article/{self.timestamp}', None,
+        _response = self.json(f'/api/blog/article/{self.timestamp}', None,
                               method="GET").container.make('Response')
         self.response = json.loads(_response)
 
-        _response_en = self.json(f'/blog/api/article_en/{self.timestamp}', None,
+        _response_en = self.json(f'/api/blog/article_en/{self.timestamp}', None,
                                  method="GET").container.make('Response')
         self.response_en = json.loads(_response_en)
 
+        # # 不正なレスポンス取得
+        # _invalid_response = self.json(f'/api/blog/article/11111', None,
+        #                       method="GET").container.make('Response')
+        # self.invalid_response = json.loads(_invalid_response)
+
+        # _invalid_response_en = self.json(f'/api/blog/article_en/11111', None,
+        #                       method="GET").container.make('Response')
+        # self.invalid_response_en = json.loads(_invalid_response_en)
+
     def test_url_exists(self):
-        assert self.route('/blog/api/article/@timestamp:int')
-        assert self.route('/blog/api/article_en/@timestamp:int')
+        assert self.route('/api/blog/article/@timestamp:int')
+        assert self.route('/api/blog/article_en/@timestamp:int')
 
     def test_url_available(self):
-        assert self.json(f'/blog/api/article/{self.timestamp}', None, method='GET').ok()
-        assert self.json(f'/blog/api/article_en/{self.timestamp}', None, method='GET').ok()
+        assert self.json(f'/api/blog/article/{self.timestamp}', None, method='GET').ok()
+        assert self.json(f'/api/blog/article_en/{self.timestamp}', None, method='GET').ok()
 
     def test_has_controller(self):
         assert self.route(
-            '/blog/api/article/@timestamp:int').has_controller(BlogController)
+            '/api/blog/article/@timestamp:int').has_controller(BlogController)
         assert self.route(
-            '/blog/api/article/@timestamp:int').has_controller(BlogController)
+            '/api/blog/article/@timestamp:int').has_controller(BlogController)
 
     def test_api(self):
         assert self.article == self.response['value']['article']
 
     def test_api_en(self):
         assert self.article_en == self.response_en['value']['article']
+
+    # def test_api_invalid(self):
+    #     assert {} == self.invalid_response
+    #     assert {} == self.invalid_response_en
