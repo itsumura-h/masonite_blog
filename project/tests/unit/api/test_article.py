@@ -61,14 +61,6 @@ class TestArticles(UnitTest):
                                  method="GET").container.make('Response')
         self.response_en = json.loads(_response_en)
 
-        # # 不正なレスポンス取得
-        # _invalid_response = self.json(f'/api/blog/article/11111', None,
-        #                       method="GET").container.make('Response')
-        # self.invalid_response = json.loads(_invalid_response)
-
-        # _invalid_response_en = self.json(f'/api/blog/article_en/11111', None,
-        #                       method="GET").container.make('Response')
-        # self.invalid_response_en = json.loads(_invalid_response_en)
 
     def test_url_exists(self):
         assert self.route('/api/blog/article/@timestamp:int')
@@ -90,6 +82,6 @@ class TestArticles(UnitTest):
     def test_api_en(self):
         assert self.article_en == self.response_en['value']['article']
 
-    # def test_api_invalid(self):
-    #     assert {} == self.invalid_response
-    #     assert {} == self.invalid_response_en
+    def test_api_invalid(self):
+        assert {} == Article.get_article_by_timestamp(12345)
+        assert {} == Article.get_article_by_timestamp_en(12345)
