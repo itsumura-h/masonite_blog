@@ -8,10 +8,10 @@ import ClassAppBar from './components/Appbar';
 import ClassTabs from './components/Tabs';
 import ClassMain from './components/Main';
 
-//React.jsのメソッドが呼ばれる順番
-//https://qiita.com/kwst/items/b1f36d0a384eab1bc284
-//https://qiita.com/yukika/items/1859743921a10d7e3e6b
-//https://qiita.com/koba04/items/66e9c5be8f2e31f28461
+// React.jsのメソッドが呼ばれる順番
+// https://qiita.com/kwst/items/b1f36d0a384eab1bc284
+// https://qiita.com/yukika/items/1859743921a10d7e3e6b
+// https://qiita.com/koba04/items/66e9c5be8f2e31f28461
 
 
 class App extends PureComponent {

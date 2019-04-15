@@ -12,6 +12,7 @@ class Article(Model):
     def get_articles_by_series_id(series_id):
         return Article \
             .select('id', 'title', 'timestamp') \
+            .where('title', '!=', '') \
             .where('series_id', series_id) \
             .where('is_private', '!=', True) \
             .get() \
@@ -22,6 +23,7 @@ class Article(Model):
         return Article \
             .select('id', 'title_en AS title', 'timestamp') \
             .where('series_id', series_id) \
+            .where('title_en', '!=', '') \
             .where('is_private', '!=', True) \
             .get() \
             .serialize()
@@ -68,6 +70,7 @@ class Article(Model):
     def get_diaries():
         return Article.select('title', 'timestamp') \
             .where_null('series_id') \
+            .where('title', '!=', '') \
             .where('is_private', '!=', True) \
             .order_by('timestamp', 'desc') \
             .limit(50) \
@@ -78,6 +81,7 @@ class Article(Model):
     def get_diaries_en():
         return Article.select('title_en AS title', 'timestamp') \
             .where_null('series_id') \
+            .where('title_en', '!=', '') \
             .where('is_private', '!=', True) \
             .order_by('timestamp', 'desc') \
             .limit(50) \
