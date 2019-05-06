@@ -29,6 +29,12 @@
   to { transform: rotate(360deg); }
 }
 
+/*画像*/
+img {
+  height: 100%;
+  object-fit: cover;
+}
+
 
 /*背景色*/
 /* トップページ */
