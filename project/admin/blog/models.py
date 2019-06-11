@@ -84,11 +84,15 @@ class Article(models.Model):
         converted = md.markdown(self.article_md, extensions=['gfm'])
         converted = converted.replace('<pre>', '<pre><code>')
         converted = converted.replace('</pre>', '</code></pre>')
+        converted = converted.replace('<a ', '<a target=”_blank” ')
+        converted = converted.replace('<table>', '<table border=2>')
         self.article_html = converted
 
         converted_en = md.markdown(self.article_md_en, extensions=['gfm'])
         converted_en = converted_en.replace('<pre>', '<pre><code>')
         converted_en = converted_en.replace('</pre>', '</code></pre>')
+        converted = converted.replace('<a ', '<a target=”_blank” ')
+        converted = converted.replace('<table>', '<table border=2>')
         self.article_html_en = converted_en
 
         if self.timestamp == None:
