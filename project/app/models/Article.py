@@ -15,6 +15,7 @@ class Article(Model):
             .where('title', '!=', '') \
             .where('series_id', series_id) \
             .where('is_private', '!=', True) \
+            .order_by('title', 'asc') \
             .get() \
             .serialize()
 
@@ -25,6 +26,7 @@ class Article(Model):
             .where('series_id', series_id) \
             .where('title_en', '!=', '') \
             .where('is_private', '!=', True) \
+            .order_by('title_en', 'asc') \
             .get() \
             .serialize()
     #------------------------------------------------------
