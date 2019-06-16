@@ -1,6 +1,7 @@
 .venv/*
 .vpy6/*
 .vpy7/*
+.py36711/*
 .pypyvenv/*
 .vscode
 nohup.out

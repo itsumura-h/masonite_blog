@@ -6,14 +6,15 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
-django = "*"
 masonite-cli = "*"
-markdown = "*"
-uwsgi = "*"
-pygments = "*"
 py-gfm = "*"
 pylint = "*"
 autopep8 = "*"
+masonite = "<2.3,>=2.2"
+Django = "*"
+uWSGI = "*"
+Pygments = "*"
+Markdown = {git = "https://github.com/Python-Markdown/markdown.git",ref = "2.6"}
 
 [requires]
 python_version = "3.6"
