@@ -1,7 +1,7 @@
 """Web Routes."""
 
 from masonite.routes import Get, Post, RouteGroup
-from masonite.helpers.routes import get, post
+# from masonite.helpers.routes import get, post
 from masonite.routes import Redirect
 
 from app.http.controllers.WelcomeController import WelcomeController
@@ -11,38 +11,38 @@ ROUTES = [
     #Get().route('/', 'WelcomeController@show').name('welcome'),
     #get('/', BlogController.redirect),
     RouteGroup([
-        get('/', BlogController.show),
-        get('/@a', BlogController.show),
-        get('/@a/@b', BlogController.show),
-        get('/@a/@b/@c', BlogController.show),
+        Get().route('/', BlogController.show),
+        Get().route('/@a', BlogController.show),
+        Get().route('/@a/@b', BlogController.show),
+        Get().route('/@a/@b/@c', BlogController.show),
     ], prefix='/blog'),
 
     RouteGroup([
         RouteGroup([
-            get('/toppage', BlogController.get_toppage),
-            get('/toppage_en', BlogController.get_toppage_en),
+            Get().route('/toppage', BlogController.get_toppage),
+            Get().route('/toppage_en', BlogController.get_toppage_en),
 
-            get('/series', BlogController.get_series),
-            get('/series_en', BlogController.get_series_en),
+            Get().route('/series', BlogController.get_series),
+            Get().route('/series_en', BlogController.get_series_en),
 
-            get('/articles/@series_id:int', BlogController.get_articles),
-            get('/articles_en/@series_id:int', BlogController.get_articles_en),
+            Get().route('/articles/@series_id:int', BlogController.get_articles),
+            Get().route('/articles_en/@series_id:int', BlogController.get_articles_en),
 
-            get('/article/@timestamp:int', BlogController.get_article),
-            get('/article_en/@timestamp:int', BlogController.get_article_en),
+            Get().route('/article/@timestamp:int', BlogController.get_article),
+            Get().route('/article_en/@timestamp:int', BlogController.get_article_en),
 
-            get('/diaries', BlogController.get_diaries),
-            get('/diaries_en', BlogController.get_diaries_en),
+            Get().route('/diaries', BlogController.get_diaries),
+            Get().route('/diaries_en', BlogController.get_diaries_en),
 
-            get('/articlesByKeyword', BlogController.get_articles_by_keyword),
-            get('/articlesByKeyword_en', BlogController.get_articles_by_keyword_en),
+            Get().route('/articlesByKeyword', BlogController.get_articles_by_keyword),
+            Get().route('/articlesByKeyword_en', BlogController.get_articles_by_keyword_en),
 
-            get('/articlesByTagId/@tag_id:int', BlogController.get_articles_by_tag_id),
-            get('/articlesByTagId_en/@tag_id:int', BlogController.get_articles_by_tag_id_en),
+            Get().route('/articlesByTagId/@tag_id:int', BlogController.get_articles_by_tag_id),
+            Get().route('/articlesByTagId_en/@tag_id:int', BlogController.get_articles_by_tag_id_en),
         ], prefix='/blog'),
     ], prefix='/api'),
 
-    get('/masonite', WelcomeController.show),
+    Get().route('/masonite', WelcomeController.show),
 
     Redirect('/', '/blog/'),
 ]

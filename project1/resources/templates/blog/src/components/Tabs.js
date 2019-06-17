@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-
-import Link from 'react-router-dom/Link';
+// import Link from 'react-router-dom/Link';
+import {Link} from 'react-router-dom';
 
 import {withStore} from '../common/store';
 
@@ -25,7 +25,6 @@ class ClassTabs extends React.Component {
   render() {
     const { classes, store } = this.props;
     const backgroundImg = store.get('backgroundImg');
-    const pathname = window.location.pathname;
 
     return (
       <AppBar position="static" className={backgroundImg}>
@@ -37,7 +36,7 @@ class ClassTabs extends React.Component {
           //fullWidth
         >
           <Button
-            component={Link} to="/blog/" disabled={pathname === '/blog/'? true: false} className={classes.toppage + ' TabBlack'}
+            component={Link} to="/blog/" disabled={backgroundImg === 'plain'? true: false} className={[classes.toppage, 'TabBlack']}
             data-backgroundimg="plain"
             onClick={this.setBackgroundImg}
           >
@@ -45,7 +44,7 @@ class ClassTabs extends React.Component {
             {I18N.toppageTab}
           </Button>
           <Button
-            component={Link} to="/blog/series/" disabled={pathname === '/blog/series/'? true: false} className={classes.series + ' TabWhite'}
+            component={Link} to="/blog/series/" disabled={backgroundImg === 'series'? true: false} className={[classes.series, 'TabWhite']}
             data-backgroundimg="series"
             onClick={this.setBackgroundImg}
           >
@@ -53,7 +52,7 @@ class ClassTabs extends React.Component {
             {I18N.seriesTab}
           </Button>
           <Button
-            component={Link} to="/blog/diary/" disabled={pathname === '/blog/diary/'? true: false} className={classes.diary + ' TabBlack'}
+            component={Link} to="/blog/diary/" disabled={backgroundImg === 'diary'? true: false} className={[classes.diary, 'TabBlack']}
             data-backgroundimg="diary"
             onClick={this.setBackgroundImg}
           >
@@ -61,7 +60,7 @@ class ClassTabs extends React.Component {
             {I18N.diariesTab}
           </Button>
           <Button
-            component={Link} to="/blog/search/" disabled={pathname === '/blog/search/'? true: false} className={classes.search + ' TabWhite'}
+            component={Link} to="/blog/search/" disabled={backgroundImg === 'search'? true: false} className={[classes.search, 'TabWhite']}
             data-backgroundimg="search"
             onClick={this.setBackgroundImg}
           >
@@ -69,7 +68,7 @@ class ClassTabs extends React.Component {
             {I18N.searchTab}
           </Button>
           <Button
-            component={Link} to="/blog/products/" disabled={pathname === '/blog/products/'? true: false} className={classes.products + ' TabWhite'}
+            component={Link} to="/blog/products/" disabled={backgroundImg === 'products'? true: false} className={[classes.products, 'TabWhite']}
             data-backgroundimg="products"
             onClick={this.setBackgroundImg}
           >
@@ -113,7 +112,7 @@ const styles = {
   },
   products: {
     backgroundColor: '#33f !important'
-  }
+  },
 }
 
 export default withStyles(styles)(withStore(ClassTabs));

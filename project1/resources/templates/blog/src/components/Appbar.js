@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
+import {withStore} from '../common/store';
 
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -45,7 +46,8 @@ class ClassAppBar extends React.Component {
   }
 
   render(){
-    const backgroundImg = Util.getBackgroundImg();
+    const {store} = this.props;
+    const backgroundImg = store.get('backgroundImg');
 
     const mobile = window.sessionStorage.getItem('mobile');
     const marquee = mobile? 'marquee': '';
@@ -57,7 +59,8 @@ class ClassAppBar extends React.Component {
             style={{flexGrow: 1}} //後ろの要素を右端に寄せる
           >
             <Typography
-              variant="title"
+              // variant="title"
+              variant="h1"
               color="inherit"
               className='Title'
             >
@@ -88,7 +91,7 @@ const styles = {
   },
 };
 
-export default withStyles(styles)(ClassAppBar);
+export default withStyles(styles)(withStore(ClassAppBar));
 
 /*
 

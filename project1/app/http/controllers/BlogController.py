@@ -11,8 +11,8 @@ class BlogController:
     """
     def __init__(self, request:Request):
         self.param = Request.param
-        if request.header('Access-Control-Allow-Origin') != 'http://localhost:3001':
-            request.header('Access-Control-Allow-Origin', 'http://localhost:3001')
+        # if request.header('Access-Control-Allow-Origin') != 'http://localhost:3001':
+        #     request.header('Access-Control-Allow-Origin', 'http://localhost:3001')
 
     __toppage__ = Toppage
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
+import {withStore} from '../common/store';
 
 import {Switch, Route, Redirect} from 'react-router-dom';
 
@@ -21,7 +22,8 @@ import MainProducts from './Main/MainProducts';
 class ClassMain extends React.Component {
 
   render(){
-    const backgroundImg = Util.getBackgroundImg();
+    const {store} = this.props;
+    const backgroundImg = store.get('backgroundImg');
 
     return(
       <Card className={backgroundImg}>
@@ -134,4 +136,4 @@ const styles = {
   }
 };
 
-export default withStyles(styles)(ClassMain);
+export default withStyles(styles)(withStore(ClassMain));
