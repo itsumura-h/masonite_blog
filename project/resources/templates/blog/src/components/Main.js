@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
+import {withStore} from '../common/store';
 
 import {Switch, Route, Redirect} from 'react-router-dom';
 
@@ -21,12 +22,14 @@ import MainProducts from './Main/MainProducts';
 class ClassMain extends React.Component {
 
   render(){
-    const backgroundImg = Util.getBackgroundImg();
+    const {store} = this.props;
+    const backgroundImg = store.get('backgroundImg');
 
     return(
       <Card className={backgroundImg}>
         <Switch>
           <Route exact path="/blog/"
+            onUpdate={this.mode}
             render={props=>(
               <MainToppge
                 routeProps={props}
@@ -35,6 +38,7 @@ class ClassMain extends React.Component {
             )}
           />
           <Route exact path="/blog/series/"
+            onUpdate={this.mode}
             render={props=>(
               <MainSeries
                 routeProps={props}
@@ -43,6 +47,7 @@ class ClassMain extends React.Component {
             )}
           />
           <Route exact path="/blog/series/:series_id"
+            onUpdate={this.mode}
             render={props=>(
               <MainArticles
                 routeProps={props}
@@ -51,6 +56,7 @@ class ClassMain extends React.Component {
             )}
           />
           <Route exact path="/blog/series/:series_id/:article_id"
+            onUpdate={this.mode}
             render={props=>(
               <MainArticle
                 routeProps={props}
@@ -59,6 +65,7 @@ class ClassMain extends React.Component {
             )}
           />
           <Route exact path="/blog/diary/"
+            onUpdate={this.mode}
             render={props=>(
               <MainDiary
                 routeProps={props}
@@ -67,6 +74,7 @@ class ClassMain extends React.Component {
             )}
           />
           <Route exact path="/blog/diary/:article_id"
+            onUpdate={this.mode}
             render={props=>(
               <MainArticle
                 routeProps={props}
@@ -75,6 +83,7 @@ class ClassMain extends React.Component {
             )}
           />
           <Route exact path="/blog/search/:article_id"
+            onUpdate={this.mode}
             render={props=>(
               <MainArticle
                 routeProps={props}
@@ -83,6 +92,7 @@ class ClassMain extends React.Component {
             )}
           />
           <Route exact path="/blog/search/"
+            onUpdate={this.mode}
             render={props=>(
               <MainSearch
                 routeProps={props}
@@ -91,6 +101,7 @@ class ClassMain extends React.Component {
             )}
           />
           <Route exact path="/blog/products/"
+            onUpdate={this.mode}
             render={props=>(
               <MainProducts
                 routeProps={props}
@@ -125,4 +136,4 @@ const styles = {
   }
 };
 
-export default withStyles(styles)(ClassMain);
+export default withStyles(styles)(withStore(ClassMain));

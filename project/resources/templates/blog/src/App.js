@@ -1,6 +1,7 @@
 import React, { Component, PureComponent } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { Switch, Route, Redirect } from 'react-router-dom';
+import { withStore  } from './common/store';
 
 //import logo from './logo.svg';
 import './App.css';
@@ -49,4 +50,4 @@ class App extends PureComponent {
   }
 }
 
-export default App;
+export default withStore(App);
