@@ -57,56 +57,53 @@ class MainArticle extends PureComponent{
     updated_on = new Date(updated_on).toDateString();
     const tags = this.state.article? this.state.article.tags: [];
 
-    let header = (
-      <CardHeader
-        title={title}
-        subheader={'posted on:' + posted_on_new + ' , updated on:' + updated_on}
-      />
-    );
-
-    let tag_chips = [];
-    for(let tags_i in tags){
-      let tag = tags[tags_i];
-      tag_chips.push(
-        <Link
-          key={tags_i}
-          to={"/blog/search/?tag=" + tag.id}
-        >
-          <Chip
-            label={tag.tag}
-            clickable
-          />
-        </Link>
-      );
-    }
-
-    const twitter = (
-      <div className="twitterDiv">
-        <a
-          href="https://twitter.com/share?ref_src=twsrc%5Etfw"
-          className="twitter-share-button"
-          data-size="large"
-          data-text={title}
-          data-via="dumblepytech1"
-          data-show-count="false"
-        >
-          tweet
-        </a>
-      </div>
-    );
-
     return (
       <div>
         <Card
           className={this.props.appProps.classes.main}
           raised={true}
         >
-          {header}
-          {twitter}
-          <div className={classes.tagsMargin}>{tag_chips}</div>
+          {/* {header} */}
+          <CardHeader
+            title={title}
+            subheader={'posted on:' + posted_on_new + ' , updated on:' + updated_on}
+          />
+
+          {/* {twitter} */}
+          <div className="twitterDiv">
+            <a
+              href="https://twitter.com/share?ref_src=twsrc%5Etfw"
+              className="twitter-share-button"
+              data-size="large"
+              data-text={title}
+              data-via="dumblepytech1"
+              data-show-count="false"
+            >
+              tweet
+            </a>
+          </div>
+
+          <div className={classes.tagsMargin}>
+            { // タグ
+              tags.map((tag, i)=>{
+                return (
+                  <Link
+                    key={i}
+                    to={"/blog/search/?tag=" + tag.id}
+                  >
+                    <Chip
+                      label={tag.tag}
+                      clickable
+                    />
+                  </Link>
+                );
+              })
+            }
+          </div>
           <div
             dangerouslySetInnerHTML={
-              {__html: article_html} }
+              {__html: article_html}
+            }
           />
         </Card>
         <MetaTags>

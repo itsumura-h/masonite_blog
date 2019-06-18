@@ -13,9 +13,8 @@ import I18N from '../common/I18N';
 import API from '../common/API';
 import Util from '../common/Util';
 
-class ClassAppBar extends PureComponent{
-
-  changeLanguage=()=>{
+const ClassAppBar=(props)=>{
+  const changeLanguage=()=>{
     let language = window.localStorage.getItem('language');
     window.localStorage.removeItem('language');
 
@@ -28,40 +27,37 @@ class ClassAppBar extends PureComponent{
     window.location.href = window.location.href;
   }
 
-  render(){
-    const {store} = this.props;
-    const backgroundImg = store.get('backgroundImg');
-    const title = store.get('toppage').title;
+  const {store} = props;
+  const backgroundImg = store.get('backgroundImg');
+  const title = store.get('toppage').title;
 
-    const isMobile = this.props.store.get('isMobile');
-    const marquee = isMobile? 'marquee': '';
-
-    return(
-      <AppBar position="static" className={backgroundImg}>
-        <Toolbar variant="dense">
-          <div className={marquee}
-            style={{flexGrow: 1}} //後ろの要素を右端に寄せる
+  const isMobile = props.store.get('isMobile');
+  const marquee = isMobile? 'marquee': '';
+  return(
+    <AppBar position="static" className={backgroundImg}>
+      <Toolbar variant="dense">
+        <div className={marquee}
+          style={{flexGrow: 1}} //後ろの要素を右端に寄せる
+        >
+          <Typography
+            variant="h1"
+            color="inherit"
+            className='Title'
           >
-            <Typography
-              variant="h1"
-              color="inherit"
-              className='Title'
-            >
-              {title}
-            </Typography>
-          </div>
-          <Fab
-            variant="extended"
-            onClick={this.changeLanguage}
-            hrefLang={window.localStorage.getItem('language') === "en"? "ja": "en"}
-          >
-            <Translate/>
-            {I18N.EnglishButton}
-          </Fab>
-        </Toolbar>
-      </AppBar>
-    );
-  }
+            {title}
+          </Typography>
+        </div>
+        <Fab
+          variant="extended"
+          onClick={changeLanguage}
+          hrefLang={window.localStorage.getItem('language') === "en"? "ja": "en"}
+        >
+          <Translate/>
+          {I18N.EnglishButton}
+        </Fab>
+      </Toolbar>
+    </AppBar>
+  );
 }
 
 ClassAppBar.propTypes = {
@@ -72,21 +68,3 @@ const styles = {
 };
 
 export default withStyles(styles)(withStore(ClassAppBar));
-
-/*
-
-<Link to="/blog/"
-  onClick={this.titleClick}
-  className={marquee}
-  style={{flexGrow: 1}} //後ろの要素を右端に寄せる
->
-  <Typography
-    variant="title"
-    color="inherit"
-    className="Title"
-  >
-    DumblePy
-  </Typography>
-</Link>
-
- */

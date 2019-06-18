@@ -1,7 +1,7 @@
 import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import {withStore} from '../common/store';
+import {withStore, StoreProps} from '../common/store';
 
 import {Switch, Route, Redirect} from 'react-router-dom';
 
@@ -17,107 +17,91 @@ import MainArticle from './Main/MainArticle';
 import MainSearch from './Main/MainSearch';
 import MainProducts from './Main/MainProducts';
 
-
-
-class ClassMain extends PureComponent {
-
-  render(){
-    const {store} = this.props;
-    const backgroundImg = store.get('backgroundImg');
-    return(
-      <Card className={backgroundImg}>
-        <Switch>
-          <Route exact path="/blog/"
-            onUpdate={this.mode}
-            render={props=>(
-              <MainToppge
-                routeProps={props}
-                appProps={this.props}
-              />
-            )}
-          />
-          <Route exact path="/blog/series/"
-            onUpdate={this.mode}
-            render={props=>(
-              <MainSeries
-                routeProps={props}
-                appProps={this.props}
-              />
-            )}
-          />
-          <Route exact path="/blog/series/:series_id"
-            onUpdate={this.mode}
-            render={props=>(
-              <MainArticles
-                routeProps={props}
-                appProps={this.props}
-              />
-            )}
-          />
-          <Route exact path="/blog/series/:series_id/:article_id"
-            onUpdate={this.mode}
-            render={props=>(
-              <MainArticle
-                routeProps={props}
-                appProps={this.props}
-              />
-            )}
-          />
-          <Route exact path="/blog/diary/"
-            onUpdate={this.mode}
-            render={props=>(
-              <MainDiary
-                routeProps={props}
-                appProps={this.props}
-              />
-            )}
-          />
-          <Route exact path="/blog/diary/:article_id"
-            onUpdate={this.mode}
-            render={props=>(
-              <MainArticle
-                routeProps={props}
-                appProps={this.props}
-              />
-            )}
-          />
-          <Route exact path="/blog/search/:article_id"
-            onUpdate={this.mode}
-            render={props=>(
-              <MainArticle
-                routeProps={props}
-                appProps={this.props}
-              />
-            )}
-          />
-          <Route exact path="/blog/search/"
-            onUpdate={this.mode}
-            render={props=>(
-              <MainSearch
-                routeProps={props}
-                appProps={this.props}
-              />
-            )}
-          />
-          <Route exact path="/blog/products/"
-            onUpdate={this.mode}
-            render={props=>(
-              <MainProducts
-                routeProps={props}
-                appProps={this.props}
-              />
-            )}
-          />
-          <Route exact path="/">
-            <Redirect to="/blog/"/>
-          </Route>
-          <Route path="/blog/(.*)">
-            <Redirect to="/blog/"/>
-          </Route>
-        </Switch>
-      </Card>
-    );
-  }
+const ClassMain=(props)=>{
+  return(
+    <Card className={props.store.get('backgroundImg')}>
+      <Switch>
+        <Route exact path="/blog/"
+          render={routeProps=>(
+            <MainToppge
+              routeProps={routeProps}
+              appProps={props}
+            />
+          )}
+        />
+        <Route exact path="/blog/series/"
+          render={routeProps=>(
+            <MainSeries
+              routeProps={routeProps}
+              appProps={props}
+            />
+          )}
+        />
+        <Route exact path="/blog/series/:series_id"
+          render={routeProps=>(
+            <MainArticles
+              routeProps={routeProps}
+              appProps={props}
+            />
+          )}
+        />
+        <Route exact path="/blog/series/:series_id/:article_id"
+          render={routeProps=>(
+            <MainArticle
+              routeProps={routeProps}
+              appProps={props}
+            />
+          )}
+        />
+        <Route exact path="/blog/diary/"
+          render={routeProps=>(
+            <MainDiary
+              routeProps={routeProps}
+              appProps={props}
+            />
+          )}
+        />
+        <Route exact path="/blog/diary/:article_id"
+          render={routeProps=>(
+            <MainArticle
+              routeProps={routeProps}
+              appProps={props}
+            />
+          )}
+        />
+        <Route exact path="/blog/search/:article_id"
+          render={routeProps=>(
+            <MainArticle
+              routeProps={routeProps}
+              appProps={props}
+            />
+          )}
+        />
+        <Route exact path="/blog/search/"
+          render={routeProps=>(
+            <MainSearch
+              routeProps={routeProps}
+              appProps={props}
+            />
+          )}
+        />
+        <Route exact path="/blog/products/"
+          render={routeProps=>(
+            <MainProducts
+              routeProps={routeProps}
+              appProps={props}
+            />
+          )}
+        />
+        <Route exact path="/">
+          <Redirect to="/blog/"/>
+        </Route>
+        <Route path="/blog/(.*)">
+          <Redirect to="/blog/"/>
+        </Route>
+      </Switch>
+    </Card>
+  );
 }
 
 ClassMain.propTypes = {

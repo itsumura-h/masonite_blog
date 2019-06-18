@@ -16,7 +16,6 @@ import API from './common/API';
 // https://qiita.com/yukika/items/1859743921a10d7e3e6b
 // https://qiita.com/koba04/items/66e9c5be8f2e31f28461
 
-
 class App extends Component {
 
   checkMobile=()=>{
