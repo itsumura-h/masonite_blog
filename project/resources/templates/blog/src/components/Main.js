@@ -19,12 +19,11 @@ import MainProducts from './Main/MainProducts';
 
 
 
-class ClassMain extends React.Component {
+class ClassMain extends React.PureComponent {
 
   render(){
     const {store} = this.props;
     const backgroundImg = store.get('backgroundImg');
-
     return(
       <Card className={backgroundImg}>
         <Switch>

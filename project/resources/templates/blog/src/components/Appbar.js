@@ -13,10 +13,7 @@ import I18N from '../common/I18N';
 import API from '../common/API';
 import Util from '../common/Util';
 
-class ClassAppBar extends React.Component {
-  state = {
-    title: '',
-  }
+class ClassAppBar extends React.PureComponent {
 
   changeLanguage=()=>{
     let language = window.localStorage.getItem('language');
@@ -31,23 +28,10 @@ class ClassAppBar extends React.Component {
     window.location.href = window.location.href;
   }
 
-  getToppage=()=>{
-    API.getToppage()
-    .then(response=>{
-      this.setState({title: response.toppage.title});
-    })
-    .catch(err=>{
-      console.error('API.toppage error');
-    })
-  }
-
-  componentDidMount(){
-    this.getToppage();
-  }
-
   render(){
     const {store} = this.props;
     const backgroundImg = store.get('backgroundImg');
+    const title = store.get('toppage').title;
 
     const mobile = window.sessionStorage.getItem('mobile');
     const marquee = mobile? 'marquee': '';
@@ -64,7 +48,7 @@ class ClassAppBar extends React.Component {
               color="inherit"
               className='Title'
             >
-              {this.state.title}
+              {title}
             </Typography>
           </div>
           <Fab
@@ -86,9 +70,6 @@ ClassAppBar.propTypes = {
 };
 
 const styles = {
-  grow: {
-    flexGrow: 1,
-  },
 };
 
 export default withStyles(styles)(withStore(ClassAppBar));
