@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 // import Link from 'react-router-dom/Link';
@@ -14,7 +14,7 @@ import TouchApp from '@material-ui/icons/TouchApp';
 import API from '../../common/API';
 import I18N from '../../common/I18N';
 
-export default class MainToppage extends React.Component{
+export default class MainToppage extends PureComponent{
   state = {
     isMounted: false,
     series: [],

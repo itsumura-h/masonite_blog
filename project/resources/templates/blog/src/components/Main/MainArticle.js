@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 
@@ -13,7 +13,7 @@ import Chip from '@material-ui/core/Chip';
 import API from '../../common/API';
 import Util from '../../common/Util';
 
-class MainArticle extends React.Component{
+class MainArticle extends PureComponent{
   state = {
     article: null,
   }

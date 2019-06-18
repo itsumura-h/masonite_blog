@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 // import Link from 'react-router-dom/Link';
@@ -15,7 +15,7 @@ import TouchApp from '@material-ui/icons/TouchApp';
 import I18N from '../common/I18N';
 import Util from '../common/Util';
 
-class ClassTabs extends React.Component {
+class ClassTabs extends PureComponent{
 
   setBackgroundImg=(e)=>{
     const backgroundImg = e.currentTarget.dataset.backgroundimg;

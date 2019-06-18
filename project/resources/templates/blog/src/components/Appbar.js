@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import {withStore} from '../common/store';
@@ -13,7 +13,7 @@ import I18N from '../common/I18N';
 import API from '../common/API';
 import Util from '../common/Util';
 
-class ClassAppBar extends React.PureComponent {
+class ClassAppBar extends PureComponent{
 
   changeLanguage=()=>{
     let language = window.localStorage.getItem('language');
@@ -33,8 +33,8 @@ class ClassAppBar extends React.PureComponent {
     const backgroundImg = store.get('backgroundImg');
     const title = store.get('toppage').title;
 
-    const mobile = window.sessionStorage.getItem('mobile');
-    const marquee = mobile? 'marquee': '';
+    const isMobile = this.props.store.get('isMobile');
+    const marquee = isMobile? 'marquee': '';
 
     return(
       <AppBar position="static" className={backgroundImg}>
@@ -43,7 +43,6 @@ class ClassAppBar extends React.PureComponent {
             style={{flexGrow: 1}} //後ろの要素を右端に寄せる
           >
             <Typography
-              // variant="title"
               variant="h1"
               color="inherit"
               className='Title'

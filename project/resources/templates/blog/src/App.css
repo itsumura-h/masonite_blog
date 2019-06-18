@@ -90,7 +90,7 @@
 .marquee {
   overflow:hidden;
 }
-.marquee h2 {
+.marquee h1 {
   margin:0;
   display:inline-block;
   white-space:nowrap;

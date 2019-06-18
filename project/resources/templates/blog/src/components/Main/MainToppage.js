@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 
@@ -9,7 +9,7 @@ import Card from '@material-ui/core/Card';
 import Util from '../../common/Util';
 import {withStore} from '../../common/store';
 
-class MainToppage extends React.PureComponent{
+class MainToppage extends PureComponent{
 
   componentDidMount(){
     Util.twitter();

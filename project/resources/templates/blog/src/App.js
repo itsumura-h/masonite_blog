@@ -17,13 +17,11 @@ import API from './common/API';
 // https://qiita.com/koba04/items/66e9c5be8f2e31f28461
 
 
-class App extends PureComponent {
+class App extends Component {
 
   checkMobile=()=>{
-    window.sessionStorage.removeItem('mobile');
-
-    if (document.body.clientWidth < 800) {
-      window.sessionStorage.mobile = true;
+    if(document.body.clientWidth < 800){
+      this.props.store.set('isMobile')(true);
     }
   }
 

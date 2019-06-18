@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import {withStore} from '../common/store';
@@ -19,7 +19,7 @@ import MainProducts from './Main/MainProducts';
 
 
 
-class ClassMain extends React.PureComponent {
+class ClassMain extends PureComponent {
 
   render(){
     const {store} = this.props;

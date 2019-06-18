@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 // import Link from 'react-router-dom/Link';
@@ -18,7 +18,7 @@ import Button from '@material-ui/core/Button';
 import API from '../../common/API';
 import I18N from '../../common/I18N';
 
-export default class MainSearch extends React.Component{
+export default class MainSearch extends PureComponent{
   state = {
     isMounted: false,
     searchWord: '',
@@ -145,7 +145,7 @@ export default class MainSearch extends React.Component{
   }
 }
 
-class SearchInput extends React.Component{
+class SearchInput extends PureComponent{
   state = {
     searchWord: ''
   }
