@@ -1,0 +1,158 @@
+<html>
+
+<head>
+  <meta charset="UTF-8">
+</head>
+
+<body>
+    <style>
+      body {
+        background-color: #DDDDDD;
+      }
+      table {
+        background-color: white;
+        width: 97vw;
+        margin: 15px;
+      }
+      table td {
+        word-break : break-all;
+      }
+      .title {
+        background-color: #3366FF;
+        color: white;
+      }
+    </style>
+  <table border="1">
+    <tr>
+      <td class="title">フリガナ</td>
+      <td>{{personal_info.name_kana}}</td>
+      <td class="title">作成日</td>
+      <td colspan="3">{{personal_info.today}}</td>
+    </tr>
+    <tr>
+      <td class="title">氏名</td>
+      <td>{{personal_info.name}}</td>
+      <td class="title">性別</td>
+      {% if personal_info.gender == 0 %}
+      <td class="title">不明</td>
+      {% elif personal_info.gender == 1 %}
+      <td>男性</td>
+      {% elif personal_info.gender == 2 %}
+      <td>女性</td>
+      {% elif personal_info.gender == 9 %}
+      <td>適用不能</td>
+      {% endif %}
+      <td class="title">国籍</td>
+      <td>日本</td>
+    </tr>
+    <tr>
+      <td class="title">最寄り駅</td>
+      <td>{{personal_info.nearlest_station}}</td>
+      <td class="title">年齢</td>
+      <td>{{personal_info.age}}</td>
+      <td class="title">生年月日</td>
+      <td>{{personal_info.birth_date}}</td>
+    </tr>
+    <tr>
+      <td class="title">学歴</td>
+      <td colspan="5">{{personal_info.academic_background}}</td>
+    </tr>
+  </table>
+
+  <table border="1">
+    <tr>
+      <td class="title">資格</td>
+      <td>{{personal_info.license}}</td>
+    </tr>
+    <tr>
+      <td class="title">保有技術</td>
+      <td>{{personal_info.skills}}</td>
+    </tr>
+    <tr>
+      <td class="title">得意技術</td>
+      <td>{{personal_info.good_at_task}}</td>
+    </tr>
+  </table>
+
+  <table border="1">
+    <tr>
+      <td class="title">自己PR</td>
+    </tr>
+    <tr>
+      <td><pre>{{personal_info.pr}}</pre></td>
+    </tr>
+  </table>
+
+  <table border="1">
+    <tr>
+      <th class="title">No</th>
+      <th class="title">作業期間</th>
+      <th colspan="6" class="title">作業内容</th>
+      <th colspan="2" class="title">開発環境</th>
+      <th class="title">担当工程</th>
+    </tr>
+    {% for project in projects %}
+    <tr>
+      <td rowspan="4">{{project.id}}</td>
+      <td rowspan="3" align="center">{{project.start_date}}<br>〜<br>{{project.end_date}}</td>
+      <td class="title">プロジェクト名</td>
+      <td colspan="5">{{project.title}}</td>
+      <td class="title">OS</td>
+      <td>{{project.os}}</td>
+      <td rowspan="4">
+        {% if project.search == 1 %}
+          技術調査<br>
+        {% endif %}
+        {% if project.requirements == 1 %}
+          要件定義<br>
+        {% endif %}
+        {% if project.basic_design == 1 %}
+          基本設計<br>
+        {% endif %}
+        {% if project.detail_design == 1 %}
+          詳細設計<br>
+        {% endif %}
+        {% if project.dev_and_unit == 1 %}
+          製造&単体テスト<br>
+        {% endif %}
+        {% if project.join_test == 1 %}
+          結合テスト<br>
+        {% endif %}
+        {% if project.test == 1 %}
+          総合テスト<br>
+        {% endif %}
+        {% if project.maintenance == 1 %}
+          運用保守<br>
+        {% endif %}
+        {% if project.dev_env == 1 %}
+          環境構築<br>
+        {% endif %}
+      </td>
+    </tr>
+    <tr>
+      <td class="title">業務内容</td>
+      <td colspan="5"><pre>{{project.detail}}</pre></td>
+      <td class="title">DB</td>
+      <td>{{project.db}}</td>
+    </tr>
+    <tr>
+      <td class="title">担当業務</td>
+      <td colspan="5"><pre>{{project.charge}}</pre></td>
+      <td class="title">言語</td>
+      <td>{{project.language}}</td>
+    </tr>
+    <tr>
+      <td align="center">{{project.term}}</td>
+      <td class="title">業種</td>
+      <td>{{project.industry}}</td>
+      <td class="title">役割</td>
+      <td>{{ project.role }}</td>
+      <td class="title">規模</td>
+      <td >全体：{{project.total_size}} チーム：{{project.team_size}}</td>
+      <td class="title">FW/ツール</td>
+      <td>{{project.framework}}</td>
+    </tr>
+    {% endfor %}
+  </table>
+</body>
+</html>

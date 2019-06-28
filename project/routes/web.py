@@ -6,6 +6,7 @@ from masonite.routes import Redirect
 
 from app.http.controllers.WelcomeController import WelcomeController
 from app.http.controllers.BlogController import BlogController
+from app.http.controllers.ResumeController import ResumeController
 
 ROUTES = [
     #Get().route('/', 'WelcomeController@show').name('welcome'),
@@ -40,6 +41,10 @@ ROUTES = [
             Get().route('/articlesByTagId/@tag_id:int', BlogController.get_articles_by_tag_id),
             Get().route('/articlesByTagId_en/@tag_id:int', BlogController.get_articles_by_tag_id_en),
         ], prefix='/blog'),
+
+        RouteGroup([
+            Get().route('/download', ResumeController.show),
+        ], prefix='/resume'),
     ], prefix='/api'),
 
     Get().route('/masonite', WelcomeController.show),
