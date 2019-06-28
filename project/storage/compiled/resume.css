@@ -1,0 +1,19 @@
+body {
+  background-color: #DDDDDD;
+}
+table {
+  background-color: white;
+  width: 97vw;
+  margin: 15px;
+}
+table td {
+  word-break : break-all;
+  /* word-break: normal; */
+}
+pre {
+  /* word-break: normal; */
+}
+.title {
+  background-color: #3366FF;
+  color: white;
+}

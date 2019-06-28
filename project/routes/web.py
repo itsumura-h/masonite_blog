@@ -7,21 +7,30 @@ from masonite.routes import Redirect
 from app.http.controllers.WelcomeController import WelcomeController
 from app.http.controllers.BlogController import BlogController
 from app.http.controllers.ResumeController import ResumeController
+from app.packages.display_blog.DisplayBlogController import DisplayBlogController
 
 ROUTES = [
     #Get().route('/', 'WelcomeController@show').name('welcome'),
     #get('/', BlogController.redirect),
+    # RouteGroup([
+    #     Get().route('/', BlogController.show),
+    #     Get().route('/@a', BlogController.show),
+    #     Get().route('/@a/@b', BlogController.show),
+    #     Get().route('/@a/@b/@c', BlogController.show),
+    # ], prefix='/blog'),
     RouteGroup([
-        Get().route('/', BlogController.show),
-        Get().route('/@a', BlogController.show),
-        Get().route('/@a/@b', BlogController.show),
-        Get().route('/@a/@b/@c', BlogController.show),
+        Get().route('/', DisplayBlogController.show),
+        Get().route('/@a', DisplayBlogController.show),
+        Get().route('/@a/@b', DisplayBlogController.show),
+        Get().route('/@a/@b/@c', DisplayBlogController.show),
     ], prefix='/blog'),
 
     RouteGroup([
         RouteGroup([
-            Get().route('/toppage', BlogController.get_toppage),
-            Get().route('/toppage_en', BlogController.get_toppage_en),
+            # Get().route('/toppage', BlogController.get_toppage),
+            # Get().route('/toppage_en', BlogController.get_toppage_en),
+            Get().route('/toppage', DisplayBlogController.get_toppage),
+            Get().route('/toppage_en', DisplayBlogController.get_toppage_en),
 
             Get().route('/series', BlogController.get_series),
             Get().route('/series_en', BlogController.get_series_en),

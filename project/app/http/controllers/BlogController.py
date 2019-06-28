@@ -17,8 +17,8 @@ class BlogController:
     __toppage__ = Toppage
 
 
-    def show(self):
-        return view('blog/build/index.html')
+    # def show(self):
+    #     return view('blog/build/index.html')
 
 
     #_/_/_/_/_/_/_/_/  API  /_/_/_/_/_/_/_/_/

@@ -2,26 +2,10 @@
 
 <head>
   <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="/static/resume.css">
 </head>
 
 <body>
-    <style>
-      body {
-        background-color: #DDDDDD;
-      }
-      table {
-        background-color: white;
-        width: 97vw;
-        margin: 15px;
-      }
-      table td {
-        word-break : break-all;
-      }
-      .title {
-        background-color: #3366FF;
-        color: white;
-      }
-    </style>
   <table border="1">
     <tr>
       <td class="title">フリガナ</td>
@@ -137,7 +121,9 @@
     </tr>
     <tr>
       <td class="title">担当業務</td>
-      <td colspan="5"><pre>{{project.charge}}</pre></td>
+      <td colspan="5">
+          {{project.charge | wordwrap(8)}}
+      </td>
       <td class="title">言語</td>
       <td>{{project.language}}</td>
     </tr>
