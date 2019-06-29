@@ -22,13 +22,13 @@ class BlogController:
 
 
     #_/_/_/_/_/_/_/_/  API  /_/_/_/_/_/_/_/_/
-    def get_toppage(self, request:Request):
-        toppage = Toppage.get_toppage().serialize()
-        return {'value': {'toppage': toppage}}
+    # def get_toppage(self, request:Request):
+    #     toppage = Toppage.get_toppage().serialize()
+    #     return {'value': {'toppage': toppage}}
 
-    def get_toppage_en(self, request:Request):
-        toppage = Toppage.get_toppage_en()
-        return {'value': {'toppage': toppage}}
+    # def get_toppage_en(self, request:Request):
+    #     toppage = Toppage.get_toppage_en()
+    #     return {'value': {'toppage': toppage}}
     #----------------------------------------------------
     def get_series(self, request:Request):
         series = Series.get_series()

@@ -23,9 +23,9 @@ class DisplayBlogController:
 
     #========================================================
     def get_toppage(self, request:Request):
-        toppage = DisplayBlogRepository.get_toppage().serialize()
+        toppage = DisplayBlogRepository.get_toppage().to_dict()
         return {'value': {'toppage': toppage}}
 
     def get_toppage_en(self, request:Request):
-        toppage = DisplayBlogRepository.get_toppage_en().serialize()
+        toppage = DisplayBlogRepository.get_toppage_en().to_dict()
         return {'value': {'toppage': toppage}}
