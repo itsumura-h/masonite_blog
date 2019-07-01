@@ -11,13 +11,6 @@ from app.http.controllers.DisplayBlogController import DisplayBlogController
 
 ROUTES = [
     #Get().route('/', 'WelcomeController@show').name('welcome'),
-    #get('/', BlogController.redirect),
-    # RouteGroup([
-    #     Get().route('/', BlogController.show),
-    #     Get().route('/@a', BlogController.show),
-    #     Get().route('/@a/@b', BlogController.show),
-    #     Get().route('/@a/@b/@c', BlogController.show),
-    # ], prefix='/blog'),
     RouteGroup([
         Get().route('/', DisplayBlogController.show),
         Get().route('/@a', DisplayBlogController.show),
