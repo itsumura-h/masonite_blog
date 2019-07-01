@@ -83,9 +83,9 @@ export default class API extends React.Component{
     let url;
 
     if(language === 'ja' || !language){
-      url = '/api/blog/articlesByKeyword?keyword=' + keyword;
+      url = `/api/blog/articlesByKeyword?keyword=${keyword}`;
     }else{
-      url = '/api/blog/articlesByKeyword?language=en?keyword=' + keyword;
+      url = `/api/blog/articlesByKeyword?language=en&keyword=${keyword}`;
     }
 
     return Util.getAPI(url);
@@ -97,9 +97,9 @@ export default class API extends React.Component{
     let url;
 
     if(language === 'ja' || !language){
-      url = '/api/blog/articlesByTagId/' + tagId;
+      url = `/api/blog/articlesByTagId/${tagId}`;
     }else{
-      url = '/api/blog/articlesByTagId?language=en/' + tagId;
+      url = `/api/blog/articlesByTagId?language=en/${tagId}`;
     }
 
     return Util.getAPI(url);

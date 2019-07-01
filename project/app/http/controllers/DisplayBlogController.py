@@ -39,6 +39,7 @@ class DisplayBlogController:
 
     def get_articles_by_keyword(self):
         keyword = self.request.input('keyword')
+        print(keyword)
         if keyword == '':
             return {'value': ''}
 

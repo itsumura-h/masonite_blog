@@ -27,7 +27,6 @@ ROUTES = [
             Get().route('/diaries', DisplayBlogController.get_diaries),
             Get().route('/articlesByKeyword', DisplayBlogController.get_articles_by_keyword),
             Get().route('/articlesByTagId/@tag_id:int', DisplayBlogController.get_articles_by_tag_id),
-
         ], prefix='/blog'),
 
         RouteGroup([
