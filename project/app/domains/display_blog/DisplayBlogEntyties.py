@@ -1,0 +1,155 @@
+import datetime
+from typing import List, Dict
+
+class ToppageEntity:
+    def __init__(self, title:str, article_html:str, meta_description:str):
+        self.title = title
+        self.article_html = article_html
+        self.meta_description = meta_description
+
+    def to_dict(self):
+        return {
+            'title': self.title,
+            'article_html': self.article_html,
+            'meta_description': self.meta_description,
+        }
+
+class SeriesEntity:
+    def __init__(self, id: int, title: str):
+        self.id = id
+        self.title = title
+
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'title': self.title
+        }
+
+class ArticlesEntity:
+    class __Series:
+        def __init__(self, id, title):
+            self.id = id
+            self.title = title
+
+        def to_dict(self):
+            return {
+                'id': self.id,
+                'title': self.title
+            }
+
+    class __Articles:
+        def __init__(self, id, title, timestamp):
+            self.id = id
+            self.title = title
+            self.timestamp = timestamp
+
+        def to_dict(self):
+            return {
+                'id': self.id,
+                'title': self.title,
+                'timestamp': self.timestamp
+            }
+
+    def __init__(self, series:Dict, articles:List):
+        self.series = self.__Series(**series)
+        self.articles = [self.__Articles(**val) for val in articles]
+
+    def to_dict(self):
+        return {
+            'series': self.series.to_dict(),
+            'articles': [val.to_dict() for val in self.articles]
+        }
+
+class ArticleEntity:
+    class __Article:
+        def __init__(self, title:str, article_html:str, meta_description:str, posted_on:str, updated_on:str):
+            self.title = title
+            self.article_html = article_html
+            self.meta_description = meta_description
+            self.posted_on = posted_on
+            self.updated_on = updated_on
+
+        def to_dict(self):
+            return {
+                'title': self.title,
+                'article_html': self.article_html,
+                'meta_description': self.meta_description,
+                'posted_on': self.posted_on,
+                'updated_on': self.updated_on,
+            }
+
+    class __Tag:
+        def __init__(self, id, tag):
+            self.id = id
+            self.tag = tag
+
+        def to_dict(self):
+            return {
+                'id': self.id,
+                'tag': self.tag
+            }
+
+    def __init__(self, article:Dict, tags:List):
+        self.article = self.__Article(**article)
+        self.tags = [self.__Tag(**val) for val in tags]
+
+    def to_dict(self):
+        return {
+            'article': self.article.to_dict(),
+            'tags': [val.to_dict() for val in self.tags]
+        }
+
+class DiariesEntity:
+    def __init__(self, title:str, timestamp:int):
+        self.title = title
+        self.timestamp = timestamp
+
+    def to_dict(self):
+        return {
+            'title': self.title,
+            'timestamp': self.timestamp
+        }
+
+class ArticlesWithKeywordEntity:
+    class __Articles:
+        def __init__(self, title, timestamp):
+            self.title = title
+            self.timestamp = timestamp
+
+        def to_dict(self):
+            return {
+                'title': self.title,
+                'timestamp': self.timestamp
+            }
+
+    def __init__(self, articles, keyword):
+        self.articles = [self.__Articles(**val) for val in articles]
+        self.keyword = keyword
+
+    def to_dict(self):
+        return {
+            'articles': [val.to_dict() for val in self.articles],
+            'keyword': self.keyword
+        }
+
+class ArticlesWithTagIdEntity:
+    class __Articles:
+        def __init__(self, title, timestamp):
+            self.title = title
+            self.timestamp = timestamp
+
+        def to_dict(self):
+            return {
+                'title': self.title,
+                'timestamp': self.timestamp
+            }
+
+    def __init__(self, articles, tag):
+        self.articles = [self.__Articles(**val) for val in articles]
+        self.tag = tag
+
+    def to_dict(self):
+        return {
+            'articles': [val.to_dict() for val in self.articles],
+            'tag': self.tag
+        }

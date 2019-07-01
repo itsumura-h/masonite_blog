@@ -16,6 +16,7 @@ import Util from '../../common/Util';
 class MainArticle extends PureComponent{
   state = {
     article: null,
+    tags: [],
   }
 
   getArticle=()=>{
@@ -29,7 +30,10 @@ class MainArticle extends PureComponent{
 
     API.getArticle(timestamp)
     .then(response=>{
-      this.setState({article: response.article});
+      this.setState({
+        article: response.article,
+        tags: response.tags
+      });
     })
     .catch(err=>{
       console.error('API.getArticle error');
@@ -55,7 +59,7 @@ class MainArticle extends PureComponent{
     const posted_on_new = new Date(posted_on).toDateString();
     let updated_on = this.state.article? this.state.article.updated_on: '';
     updated_on = new Date(updated_on).toDateString();
-    const tags = this.state.article? this.state.article.tags: [];
+    const tags = this.state.tags? this.state.tags: [];
 
     return (
       <div>

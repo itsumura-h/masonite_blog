@@ -1,7 +1,7 @@
 const DEV = {
   mode: 'dev',
   APIMODE: {mode: 'no-cors'},
-  APIHOST: 'http://localhost:8000',
+  APIHOST: 'http://localhost:8001',
 }
 
 const PROD = {

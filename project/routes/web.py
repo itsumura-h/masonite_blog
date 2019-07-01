@@ -7,7 +7,7 @@ from masonite.routes import Redirect
 from app.http.controllers.WelcomeController import WelcomeController
 from app.http.controllers.BlogController import BlogController
 from app.http.controllers.ResumeController import ResumeController
-from app.packages.display_blog.DisplayBlogController import DisplayBlogController
+from app.http.controllers.DisplayBlogController import DisplayBlogController
 
 ROUTES = [
     #Get().route('/', 'WelcomeController@show').name('welcome'),
@@ -27,28 +27,14 @@ ROUTES = [
 
     RouteGroup([
         RouteGroup([
-            # Get().route('/toppage', BlogController.get_toppage),
-            # Get().route('/toppage_en', BlogController.get_toppage_en),
             Get().route('/toppage', DisplayBlogController.get_toppage),
-            Get().route('/toppage_en', DisplayBlogController.get_toppage_en),
+            Get().route('/series', DisplayBlogController.get_series),
+            Get().route('/articles/@series_id:int', DisplayBlogController.get_articles),
+            Get().route('/article/@timestamp:int', DisplayBlogController.get_article),
+            Get().route('/diaries', DisplayBlogController.get_diaries),
+            Get().route('/articlesByKeyword', DisplayBlogController.get_articles_by_keyword),
+            Get().route('/articlesByTagId/@tag_id:int', DisplayBlogController.get_articles_by_tag_id),
 
-            Get().route('/series', BlogController.get_series),
-            Get().route('/series_en', BlogController.get_series_en),
-
-            Get().route('/articles/@series_id:int', BlogController.get_articles),
-            Get().route('/articles_en/@series_id:int', BlogController.get_articles_en),
-
-            Get().route('/article/@timestamp:int', BlogController.get_article),
-            Get().route('/article_en/@timestamp:int', BlogController.get_article_en),
-
-            Get().route('/diaries', BlogController.get_diaries),
-            Get().route('/diaries_en', BlogController.get_diaries_en),
-
-            Get().route('/articlesByKeyword', BlogController.get_articles_by_keyword),
-            Get().route('/articlesByKeyword_en', BlogController.get_articles_by_keyword_en),
-
-            Get().route('/articlesByTagId/@tag_id:int', BlogController.get_articles_by_tag_id),
-            Get().route('/articlesByTagId_en/@tag_id:int', BlogController.get_articles_by_tag_id_en),
         ], prefix='/blog'),
 
         RouteGroup([

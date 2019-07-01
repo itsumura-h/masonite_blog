@@ -7,6 +7,7 @@ from app.http.middleware.AuthenticationMiddleware import \
 from app.http.middleware.CsrfMiddleware import CsrfMiddleware
 from app.http.middleware.LoadUserMiddleware import LoadUserMiddleware
 from app.http.middleware.VerifyEmailMiddleware import VerifyEmailMiddleware
+from app.http.middleware.ResetParamsMiddleware import ResetParamsMiddleware
 
 """HTTP Middleware
 HTTP middleware is middleware that will be ran on every request. Middleware
@@ -21,6 +22,7 @@ HTTP_MIDDLEWARE = [
     ResponseMiddleware,
     MaintenanceModeMiddleware,
     CorsMiddleware,
+    ResetParamsMiddleware,
 ]
 
 from masonite import env

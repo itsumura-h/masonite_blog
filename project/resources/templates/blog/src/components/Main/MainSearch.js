@@ -46,7 +46,7 @@ export default class MainSearch extends PureComponent{
     .then(response=>{
       this.setState({
         isMounted: true,
-        searchWord: response.tag.tag,
+        searchWord: response.tag,
         articles: response.articles
       });
     })

@@ -30,70 +30,70 @@ class BlogController:
     #     toppage = Toppage.get_toppage_en()
     #     return {'value': {'toppage': toppage}}
     #----------------------------------------------------
-    def get_series(self, request:Request):
-        series = Series.get_series()
-        return{'value': {'series': series}}
+    # def get_series(self, request:Request):
+    #     series = Series.get_series()
+    #     return {'value': {'series': series}}
 
-    def get_series_en(self, request:Request):
-        series = Series.get_series_en()
-        return{'value': {'series': series}}
+    # def get_series_en(self, request:Request):
+    #     series = Series.get_series_en()
+    #     return {'value': {'series': series}}
     #----------------------------------------------------
-    def get_articles(self, request:Request):
-        series_id = request.param('series_id')
-        series = Series.get_series_mono(series_id)
-        articles = Article.get_articles_by_series_id(series_id)
-        return {'value':{'series':series, 'articles': articles}}
+    # def get_articles(self, request:Request):
+    #     series_id = request.param('series_id')
+    #     series = Series.get_series_mono(series_id)
+    #     articles = Article.get_articles_by_series_id(series_id)
+    #     return {'value':{'series':series, 'articles': articles}}
 
-    def get_articles_en(self, request:Request):
-        series_id = request.param('series_id')
-        series = Series.get_series_mono_en(series_id)
-        articles = Article.get_articles_by_series_id_en(series_id)
-        return {'value':{'series':series, 'articles': articles}}
+    # def get_articles_en(self, request:Request):
+    #     series_id = request.param('series_id')
+    #     series = Series.get_series_mono_en(series_id)
+    #     articles = Article.get_articles_by_series_id_en(series_id)
+    #     return {'value':{'series':series, 'articles': articles}}
     #-----------------------------------------------------
-    def get_article(self, request:Request):
-        timestamp = request.param('timestamp')
-        article = Article.get_article_by_timestamp(timestamp)
-        article['tags'] = Tag.get_tags_by_timestamp(timestamp)
-        return {'value': {'article': article}}
+    # def get_article(self, request:Request):
+    #     timestamp = request.param('timestamp')
+    #     article = Article.get_article_by_timestamp(timestamp)
+    #     article['tags'] = Tag.get_tags_by_timestamp(timestamp)
+    #     return {'value': {'article': article}}
 
-    def get_article_en(self, request:Request):
-        timestamp = request.param('timestamp')
-        article = Article.get_article_by_timestamp_en(timestamp)
-        article['tags'] = Tag.get_tags_by_timestamp_en(timestamp)
-        return {'value': {'article': article}}
+    # def get_article_en(self, request:Request):
+    #     timestamp = request.param('timestamp')
+    #     article = Article.get_article_by_timestamp_en(timestamp)
+    #     article['tags'] = Tag.get_tags_by_timestamp_en(timestamp)
+    #     return {'value': {'article': article}}
     #-----------------------------------------------------
-    def get_diaries(self, request:Request):
-        diaries = Article.get_diaries()
-        return{'value': {'diaries': diaries}}
+    # def get_diaries(self, request:Request):
+    #     diaries = Article.get_diaries()
+    #     return{'value': {'diaries': diaries}}
 
-    def get_diaries_en(self, request:Request):
-        diaries = Article.get_diaries_en()
-        return{'value': {'diaries': diaries}}
+    # def get_diaries_en(self, request:Request):
+    #     diaries = Article.get_diaries_en()
+    #     return{'value': {'diaries': diaries}}
     #-----------------------------------------------------
-    def get_articles_by_keyword(self, request:Request):
-        keyword = request.input('keyword')
-        if keyword == '':
-            return {'value': ''}
+    # def get_articles_by_keyword(self, request:Request):
+    #     keyword = request.input('keyword')
+    #     if keyword == '':
+    #         return {'value': ''}
 
-        articles = Article.get_articles_by_keyword(keyword)
-        return {'value': {'keyword': keyword, 'articles': articles}}
+    #     articles = Article.get_articles_by_keyword(keyword)
+    #     return {'value': {'keyword': keyword, 'articles': articles}}
 
-    def get_articles_by_keyword_en(self, request:Request):
-        keyword = request.input('keyword')
-        if keyword == '':
-            return {'value': ''}
+    # def get_articles_by_keyword_en(self, request:Request):
+    #     keyword = request.input('keyword')
+    #     if keyword == '':
+    #         return {'value': ''}
 
-        articles = Article.get_articles_by_keyword_en(keyword)
-        return {'value': {'keyword': keyword, 'articles': articles}}
+    #     articles = Article.get_articles_by_keyword_en(keyword)
+    #     return {'value': {'keyword': keyword, 'articles': articles}}
     #-----------------------------------------------------
-    def get_articles_by_tag_id(self, request:Request):
-        tag_id = request.param('tag_id')
-        tag = Tag.get_tag_name_by_tag_id(tag_id)
-        articles = Article.get_articles_by_tag_id(tag_id)
-        return {'value': {'tag': tag, 'articles': articles}}
+    # def get_articles_by_tag_id(self, request:Request):
+    #     tag_id = request.param('tag_id')
+    #     tag = Tag.get_tag_name_by_tag_id(tag_id)
+    #     articles = Article.get_articles_by_tag_id(tag_id)
+    #     return {'value': {'tag': tag, 'articles': articles}}
 
-    def get_articles_by_tag_id_en(self, request:Request):
-        tag_id = request.param('tag_id')
-        tag = Tag.get_tag_name_by_tag_id_en(tag_id)
-        articles = Article.get_articles_by_tag_id_en(tag_id)
-        return {'value': {'tag': tag, 'articles': articles}}
+    # def get_articles_by_tag_id_en(self, request:Request):
+    #     tag_id = request.param('tag_id')
+    #     tag = Tag.get_tag_name_by_tag_id_en(tag_id)
+    #     articles = Article.get_articles_by_tag_id_en(tag_id)
+    #     return {'value': {'tag': tag, 'articles': articles}}
