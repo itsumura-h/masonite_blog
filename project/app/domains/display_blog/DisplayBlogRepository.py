@@ -17,13 +17,17 @@ class DisplayBlogRepository:
     @staticmethod
     def get_series(language):
         args = ['series.id', 'series.title']
+        where_args = ['articles.article_md', '!=', '']
+
         if language == 'en':
             args[1] = 'series.title_en AS title'
+            where_args[0] = ['articles.article_md_en', '!=', '']
 
         return Series.select(*args) \
             .distinct() \
             .join('articles', 'series.id', '=', 'articles.series_id') \
             .where('articles.is_private', '!=', True) \
+            .where(*where_args) \
             .get() \
             .serialize()
 
@@ -31,38 +35,45 @@ class DisplayBlogRepository:
     def get_articles(language, series_id):
         series_args = ['id', 'title']
         article_args = ['id', 'title', 'timestamp']
+        where_args = ['article_md', '!=', '']
 
         if language == 'en':
             series_args[1] = 'title_en AS title'
             article_args[1] = 'title_en AS title'
+            where_args[0] = ['article_md_en', '!=', '']
 
         series = Series.select(*series_args).where('id', series_id).first().serialize()
 
         articles = Article \
             .select(*article_args) \
-            .where('title', '!=', '') \
             .where('series_id', series_id) \
             .where('is_private', '!=', True) \
+            .where(*where_args) \
             .order_by('title', 'asc') \
             .get() \
             .serialize()
+
+            # .where('title', '!=', '') \
 
         return series, articles
 
     @staticmethod
     def get_article_by_timestamp(language, timestamp:int):
         article_args = ['title', 'article_html', 'meta_description', 'posted_on', 'updated_on']
+        where_args = ['article_md', '!=', '']
         tag_args = ['tags.id', 'tag']
 
         if language == 'en':
             article_args[0] = 'title_en AS title'
             article_args[1] = 'article_html_en AS article_html'
+            where_args[0] = ['article_md_en', '!=', '']
             tag_args[1] = 'tag_en AS tag'
 
         article = Article \
             .select(*article_args) \
             .where('timestamp', timestamp) \
             .where('is_private', '!=', True) \
+            .where(*where_args) \
             .first() \
             .serialize()
 
