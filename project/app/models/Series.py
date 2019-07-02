@@ -1,5 +1,12 @@
 """ Series Model """
 
+"""Model Definition (generated with love by Masonite)
+
+id: integer default: None
+title: string(255) default: None
+title_en: string(255) default: None
+"""
+
 from config.database import Model
 
 class Series(Model):

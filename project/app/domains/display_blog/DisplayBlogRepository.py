@@ -95,24 +95,28 @@ class DisplayBlogRepository:
     @staticmethod
     def get_articles_by_keyword(language, keyword):
         args = ['title', 'timestamp']
+        where_args = ['article_md', 'like', f'%{keyword}%']
 
         if language == 'en':
             args[0] = 'title_en AS title'
+            where_args[0] = 'article_md_en'
 
         return Article \
                 .select(*args) \
                 .where('is_private', '!=', True) \
-                .where('article_md', 'like', '%{keyword}%'.format(keyword=keyword)) \
+                .where(*where_args) \
                 .get() \
                 .serialize()
 
     @staticmethod
     def get_articles_by_tag_id(language, tag_id):
         article_args = ['articles.title', 'articles.timestamp']
+        where_args = ['article_md', '!=', '']
         tag_args = ['tag']
 
         if language == 'en':
             article_args[0] = 'articles.title_en AS title'
+            where_args[0] = 'article_md_en'
             tag_args[0] = 'tag_en AS tag'
 
         articles = Article \
@@ -120,6 +124,7 @@ class DisplayBlogRepository:
             .left_join('tagmaps', 'articles.id', '=', 'tagmaps.article_id') \
             .left_join('tags', 'tagmaps.tag_id', '=', 'tags.id') \
             .where('is_private', '!=', True) \
+            .where(*where_args) \
             .where('tags.id', '=', tag_id) \
             .get() \
             .serialize()
