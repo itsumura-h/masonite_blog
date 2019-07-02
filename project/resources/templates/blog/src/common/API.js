@@ -99,7 +99,7 @@ export default class API extends React.Component{
     if(language === 'ja' || !language){
       url = `/api/blog/articlesByTagId/${tagId}`;
     }else{
-      url = `/api/blog/articlesByTagId?language=en/${tagId}`;
+      url = `/api/blog/articlesByTagId/${tagId}?language=en`;
     }
 
     return Util.getAPI(url);

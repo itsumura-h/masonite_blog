@@ -72,6 +72,34 @@
 - model: blog.article
   pk: 4
   fields:
+    title: 日本語だけ
+    article_md: "# 日本語だけ"
+    article_html: "<h1>日本語だけ</h1>"
+    title_en: ""
+    article_md_en: ""
+    article_html_en: ""
+    meta_description: 日本語だけ
+    timestamp: 000004
+    posted_on: 2018-10-12
+    updated_on: 2018-10-12
+
+- model: blog.article
+  pk: 5
+  fields:
+    title: ""
+    article_md: ""
+    article_html: ""
+    title_en: "Only English"
+    article_md_en: "# Only English"
+    article_html_en: "<h1>Only English</h1>"
+    meta_description: Only English
+    timestamp: 000005
+    posted_on: 2018-10-12
+    updated_on: 2018-10-12
+
+- model: blog.article
+  pk: 6
+  fields:
     title: シリーズ１ - 記事1
     article_md: "# シリーズ１ - 記事1"
     article_html: "<h1>シリーズ１ - 記事1</h1>"
@@ -79,13 +107,13 @@
     article_md_en: "# Series1 Article1"
     article_html_en: "<h1>Series1 Article1</h1>"
     meta_description: Series1 Article1
-    timestamp: 000004
+    timestamp: 000006
     series: 1
     posted_on: 2018-10-12
     updated_on: 2018-10-12
 
 - model: blog.article
-  pk: 5
+  pk: 7
   fields:
     title: シリーズ１ - 記事2
     article_md: "# シリーズ１ - 記事2"
@@ -94,13 +122,13 @@
     article_md_en: "# Series1 Article2"
     article_html_en: "<h1>Series1 Article2</h1>"
     meta_description: Series1 Article2
-    timestamp: 000005
+    timestamp: 000007
     series: 1
     posted_on: 2018-10-12
     updated_on: 2018-10-12
 
 - model: blog.article
-  pk: 6
+  pk: 8
   fields:
     title: シリーズ2 - 記事1
     article_md: "# シリーズ2 - 記事1"
@@ -109,13 +137,13 @@
     article_md_en: "# Series2 Article1"
     article_html_en: "<h1>Series2 Article1</h1>"
     meta_description: Series2 Article1
-    timestamp: 000006
+    timestamp: 000008
     series: 2
     posted_on: 2018-10-12
     updated_on: 2018-10-12
 
 - model: blog.article
-  pk: 7
+  pk: 9
   fields:
     title: シリーズ2 - 記事2
     article_md: "# シリーズ2 - 記事2"
@@ -124,13 +152,13 @@
     article_md_en: "# Series2 Article2"
     article_html_en: "<h1>Series2 Article2</h1>"
     meta_description: Series2 Article2
-    timestamp: 000007
+    timestamp: 000009
     series: 2
     posted_on: 2018-10-12
     updated_on: 2018-10-12
 
 - model: blog.article
-  pk: 8
+  pk: 10
   fields:
     title: シリーズ3 - 記事1
     article_md: "# シリーズ3 - 記事1"
@@ -139,13 +167,13 @@
     article_md_en: "# Series3 Article1"
     article_html_en: "<h1>Series3 Article1</h1>"
     meta_description: Series3 Article1
-    timestamp: 000008
+    timestamp: 000010
     series: 3
     posted_on: 2018-10-12
     updated_on: 2018-10-12
 
 - model: blog.article
-  pk: 9
+  pk: 11
   fields:
     title: シリーズ3 - 記事2
     article_md: "# シリーズ3 - 記事2"
@@ -154,7 +182,7 @@
     article_md_en: "# Series3 Article2"
     article_html_en: "<h1>Series3 Article2</h1>"
     meta_description: Series3 Article2
-    timestamp: 000009
+    timestamp: 000011
     series: 3
     posted_on: 2018-10-12
     updated_on: 2018-10-12
