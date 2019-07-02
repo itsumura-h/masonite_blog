@@ -21,7 +21,11 @@ class DisplayBlogRepository:
 
         if language == 'en':
             args[1] = 'series.title_en AS title'
+<<<<<<< HEAD
             where_args[0] = ['articles.article_md_en', '!=', '']
+=======
+            where_args[0] = 'articles.article_md_en'
+>>>>>>> b004990453ddebebfd9ccabd3ff4072b9b47abc0
 
         return Series.select(*args) \
             .distinct() \
@@ -40,7 +44,11 @@ class DisplayBlogRepository:
         if language == 'en':
             series_args[1] = 'title_en AS title'
             article_args[1] = 'title_en AS title'
+<<<<<<< HEAD
             where_args[0] = ['article_md_en', '!=', '']
+=======
+            where_args[0] = 'article_md_en'
+>>>>>>> b004990453ddebebfd9ccabd3ff4072b9b47abc0
 
         series = Series.select(*series_args).where('id', series_id).first().serialize()
 
@@ -66,7 +74,11 @@ class DisplayBlogRepository:
         if language == 'en':
             article_args[0] = 'title_en AS title'
             article_args[1] = 'article_html_en AS article_html'
+<<<<<<< HEAD
             where_args[0] = ['article_md_en', '!=', '']
+=======
+            where_args[0] = 'article_md_en'
+>>>>>>> b004990453ddebebfd9ccabd3ff4072b9b47abc0
             tag_args[1] = 'tag_en AS tag'
 
         article = Article \
