@@ -90,14 +90,17 @@ class DisplayBlogRepository:
     @staticmethod
     def get_diaries(language):
         args = ['title', 'timestamp']
+        where_args = ['article_md', '!=', '']
 
         if language == 'en':
             args[0] = 'title_en AS title'
+            where_args[0] = 'article_md_en'
 
         return Article.select(*args) \
             .where_null('series_id') \
             .where('title', '!=', '') \
             .where('is_private', '!=', True) \
+            .where(*where_args) \
             .order_by('timestamp', 'desc') \
             .limit(50) \
             .get() \
