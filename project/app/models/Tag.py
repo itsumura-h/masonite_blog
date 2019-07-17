@@ -34,7 +34,7 @@ class Tag(Model):
             .where('articles.timestamp', '=', timestamp) \
             .get() \
             .serialize()
-    #------------------------------------------------
+    # ------------------------------------------------
     @staticmethod
     def get_tag_name_by_tag_id(tag_id):
         return Tag \

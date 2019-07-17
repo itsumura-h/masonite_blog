@@ -14,39 +14,81 @@ class DisplayBlogController:
 
     #========================================================
     def get_toppage(self):
-        toppage = DisplayBlogService.get_toppage(self.language).to_dict()
-        return {'value': {'toppage': toppage}}
+        toppage = DisplayBlogService.get_toppage(self.language)
+        return {'value': {
+            'toppage': {
+                'title': toppage.title,
+                'article_html': toppage.article_html,
+                'meta_description': toppage.meta_description
+            }
+        }}
 
     def get_series(self):
         series = DisplayBlogService.get_series(self.language)
-        series = [val.to_dict() for val in series]
-        return {'value': {'series': series}}
+        return {
+            'value': {
+                'series': [
+                    {'id': val.id, 'title': val.title} for val in series
+                ]
+            }
+        }
 
     def get_articles(self):
         series_id = self.request.param('series_id')
-        articles = DisplayBlogService.get_articles(self.language, series_id).to_dict()
-        return {'value': articles}
+        series, articles = DisplayBlogService.get_articles(self.language, series_id)
+        return {'value': {
+            'series': {
+                'id': series.id,
+                'title': series.title
+            },
+            'articles': [
+                {'title': val.title, 'timestamp': val.timestamp} for val in articles
+            ]
+        }}
 
     def get_article(self):
         timestamp = self.request.param('timestamp')
-        article = DisplayBlogService.get_article_by_timestamp(self.language, timestamp).to_dict()
-        return {'value': article}
+        article, tags = DisplayBlogService.get_article_by_timestamp(self.language, timestamp)
+        return {'value':{
+            'article':{
+                'title': article.title,
+                'article_html': article.article_html,
+                'meta_description': article.meta_description,
+                'posted_on': article.posted_on,
+                'updated_on': article.updated_on,
+            },
+            'tags':[
+                {'id': val.id, 'tag': val.tag} for val in tags
+            ]
+        }}
 
     def get_diaries(self):
         diaries = DisplayBlogService.get_diaries(self.language)
-        diaries = [val.to_dict() for val in diaries]
-        return {'value': {'diaries': diaries}}
+        return {'value': {
+            'diaries': [
+                {'title': val.title, 'timestamp': val.timestamp} for val in diaries
+            ]
+        }}
 
     def get_articles_by_keyword(self):
         keyword = self.request.input('keyword')
-        print(keyword)
         if keyword == '':
             return {'value': ''}
 
         articles = DisplayBlogService.get_articles_by_keyword(self.language, keyword)
-        return {'value': articles.to_dict()}
+        return {'value': {
+            'articles': [
+                {'title': val.title, 'timestamp': val.timestamp} for val in articles
+            ],
+            'keyword': keyword
+        }}
 
     def get_articles_by_tag_id(self):
         tag_id = self.request.param('tag_id')
-        articles = DisplayBlogService.get_articles_by_tag_id(self.language, tag_id)
-        return {'value': articles.to_dict()}
+        articles, tag = DisplayBlogService.get_articles_by_tag_id(self.language, tag_id)
+        return {'value': {
+            'articles': [
+                {'title': val.title, 'timestamp': val.timestamp} for val in articles
+            ],
+            'tag': tag
+        }}
