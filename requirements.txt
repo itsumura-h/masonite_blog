@@ -12,7 +12,7 @@ chardet==3.0.4
 cleo==0.6.8
 coverage==4.5.2
 cryptography==2.3.1
-Django==2.1.5
+Django==2.2.28
 Faker==0.8.18
 greenlet==0.4.13
 gunicorn==19.9.0
